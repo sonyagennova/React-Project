@@ -1,0 +1,70 @@
+export function Info(){
+    return(
+        <section className="info_section ">
+    <div className="container">
+      <div className="row">
+        <div className="col-md-6 col-lg-3">
+          <div className="info_contact">
+            <h5>CONTACT INFO</h5>
+            <div>
+              <img src="./drool-html/images/call.png" alt="" />
+              <p>+01 1234567890</p>
+            </div>
+            <div>
+              <img src="./drool-html/images/mail.png" alt="" />
+              <p>demo@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6 col-lg-3">
+          <div className="info_time">
+            <h5>Opening Hours Shop</h5>
+            <div>
+              <p>Monday to friday</p>
+            </div>
+            <div>
+              <p>07:00 am to 04:00 pm</p>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6 col-lg-3">
+          <div className="info_social">
+            <h5>social media</h5>
+            <div className="social_container">
+              <div>
+                <a href="">
+                  <img src="./drool-html/images/fb.png" alt="" />
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <img src="./drool-html/images/twitter.png" alt="" />
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <img src="./drool-html/images/linkedin.png" alt="" />
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <img src="./drool-html/images/instagram.png" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6 col-lg-3">
+          <div className="info_form pl-lg-4">
+            <h5>Newsletter</h5>
+            <form action="">
+              <input type="text" placeholder="Enter Your Email" />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    )
+}

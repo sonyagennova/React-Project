@@ -1,0 +1,89 @@
+export function ClientSection(){
+    return(
+        <section className="client_section layout_padding">
+    <div className="container">
+      <div className="heading_container">
+        <img src="./drool-html/images/heading-img.png" alt="" />
+        <h2>What Says Our Customer</h2>
+        <p>
+          It is a long established fact that a reader will be distracted by the
+        </p>
+      </div>
+      <div
+        id="carouselExampleControls"
+        className="carousel slide"
+        data-ride="carousel"
+      >
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <div className="box">
+              <div className="img-box">
+                <img src="./drool-html/images/client.png" alt="" />
+              </div>
+              <div className="detail-box">
+                <h4>Jack Mengo</h4>
+                <p>
+                  It is a long established fact that a reader will be distracted
+                  by the readable cIt is a long established fact that a reader
+                  will be distracted by the readable c
+                </p>
+                <img src="./drool-html/images/quote.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div className="carousel-item">
+            <div className="box">
+              <div className="img-box">
+                <img src="./drool-html/images/client.png" alt="" />
+              </div>
+              <div className="detail-box">
+                <h4>Jack Mengo</h4>
+                <p>
+                  It is a long established fact that a reader will be distracted
+                  by the readable cIt is a long established fact that a reader
+                  will be distracted by the readable c
+                </p>
+                <img src="./drool-html/images/quote.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div className="carousel-item">
+            <div className="box">
+              <div className="img-box">
+                <img src="./drool-html/images/client.png" alt="" />
+              </div>
+              <div className="detail-box">
+                <h4>Jack Mengo</h4>
+                <p>
+                  It is a long established fact that a reader will be distracted
+                  by the readable cIt is a long established fact that a reader
+                  will be distracted by the readable c
+                </p>
+                <img src="./drool-html/images/quote.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="carousel_btn-box">
+          <a
+            className="carousel-control-prev"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="prev"
+          >
+            <span className="sr-only">Previous</span>
+          </a>
+          <a
+            className="carousel-control-next"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="next"
+          >
+            <span className="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+    )
+}
