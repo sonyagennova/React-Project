@@ -12,6 +12,7 @@ import { KidsPage } from "./components/otherPages/kidsPage"
 import { kidsBooks } from "./props/kids-books"
 import { Login } from "./components/otherPages/LoginPage"
 import { RegisterPage } from "./components/otherPages/RegisterPage"
+import { CreatePage } from "./components/otherPages/createPage"
 
 function App() {
   if(location.pathname == "/categories"){
@@ -35,6 +36,10 @@ function App() {
   } else if(location.pathname == "/register"){
     return(
       <RegisterPage />
+    )
+  } else if(location.pathname == "/add"){
+    return(
+      <CreatePage />
     )
   } else {
     return (
