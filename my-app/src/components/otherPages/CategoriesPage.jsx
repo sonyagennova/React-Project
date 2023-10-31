@@ -71,7 +71,7 @@ export function CategoriesPage(){
             </div>
             <div className="box b2">
               <div className="img-box">
-                <a href="/adventure"><img src="./drool-html/images/adventure.jpg" alt="" /></a>
+                <a href="/adventure"><img src="https://images.unsplash.com/photo-1571782605941-8c8fd0d43df6?auto=format&fit=crop&q=80&w=2000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
               </div>
               <div className="detail-box">
                 <h5>Adventure</h5>
@@ -93,7 +93,7 @@ export function CategoriesPage(){
             </div>
             <div className="box b2">
               <div className="img-box">
-                <a  href="/autobiography"><img src="./drool-html/images/autobiography.jpg" alt="" /></a>
+                <a  href="/autobiography"><img src="https://images.unsplash.com/photo-1619878473858-ace2b236897c?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
               </div>
               <div className="detail-box">
                 <h5>Autobiography</h5>
