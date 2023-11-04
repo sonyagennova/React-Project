@@ -1,7 +1,6 @@
 {
-    "books": [
-      {
-        "id": 1,
+  "1":{
+        "_id": "1",
         "title": "To Kill a Mockingbird",
         "author": "Harper Lee",
         "publication_year": 1960,
@@ -9,8 +8,8 @@
         "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.penguin.com.au%2Fcovers%2Foriginal%2F9781784870799.jpg&f=1&nofb=1&ipt=e130c7381c3f7fc164999a766114478fc137c29ce644e5276484b924d73522ee&ipo=images",
         "category": "Classic"
       },
-      {
-        "id": 3,
+  "3":{
+        "_id": "3",
         "title": "The Great Gatsby",
         "author": "F. Scott Fitzgerald",
         "publication_year": 1925,
@@ -18,8 +17,8 @@
         "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F83%2F9c%2Ffa%2F839cfa60faa10999f6d1b73251da5dc4.jpg&f=1&nofb=1&ipt=bbca525d76056e873ccf2d50d389bc1628afe2215a34912c8d77bd9511156ad4&ipo=images",
         "category": "Tragedy"
       },
-      {
-        "id": 4,
+  "4":{
+        "_id": "4",
         "title": "Pride and Prejudice",
         "author": "Jane Austen",
         "publication_year": 1813,
@@ -27,8 +26,8 @@
         "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.penguin.com.au%2Fcovers%2Foriginal%2F9780141330167.jpg&f=1&nofb=1&ipt=6e299c6cbed98a0142bc35b3e57980a3151ff3a2c4c67c74a3a9c61ba9e76794&ipo=images",
         "category": "Romance"
       },
-      {
-        "id": 5,
+  "5":{
+        "_id": "5",
         "title": "The Catcher in the Rye",
         "author": "J.D. Salinger",
         "publication_year": 1951,
@@ -36,6 +35,5 @@
         "imageUrl": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fmedia.npr.org%2Fassets%2Fbakertaylor%2Fcovers%2Fc%2Fcatcher-in-the-rye%2F9780316769488_custom-b6fc2e108f3865eb320720875c20e4f869da8065-s6-c30.jpg&f=1&nofb=1&ipt=92b21f7346af27bc53eac104fed02b72eb1e23e6b126fffb1823622840261aca&ipo=images",
         "category": "Adventure"
       }
-    ]
   }
   

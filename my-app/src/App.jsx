@@ -8,7 +8,7 @@ import { Footer } from "./components/homePageSections/Footer"
 import { Header } from "./components/homePageSections/Header"
 import { Info } from "./components/homePageSections/InfoSection"
 import { topBooks } from "./props/topBooks"
-import { KidsPage } from "./components/otherPages/kidsPage"
+import { CategoryPage } from "./components/otherPages/CategoryPage"
 import { kidsBooks } from "./props/kids-books"
 import { Login } from "./components/otherPages/LoginPage"
 import { RegisterPage } from "./components/otherPages/RegisterPage"
@@ -21,10 +21,10 @@ function App() {
           <CategoriesPage />
         </>
       )
-  } else if(location.pathname == "/kids"){
+  } else if(location.pathname.includes("/category/")){
     return(
       <>
-        <KidsPage books={kidsBooks}/>
+        <CategoryPage/>
       </>
     )
   } else if(location.pathname == "/login"){

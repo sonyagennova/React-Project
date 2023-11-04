@@ -1,7 +1,7 @@
 export function Nav(){
     return(
         <nav className="navbar navbar-expand-lg custom_nav-container">
-          <a className="navbar-brand" href="index.html">
+          <a className="navbar-brand" href="/index.html">
             {/* <img src="./static/images/logo.png" alt="" /> */}
             <h1>GL</h1>
           </a>
