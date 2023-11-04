@@ -7,11 +7,11 @@ export function Info(){
           <div className="info_contact">
             <h5>CONTACT INFO</h5>
             <div>
-              <img src="./drool-html/images/call.png" alt="" />
+              <img src="./static/images/call.png" alt="" />
               <p>+01 1234567890</p>
             </div>
             <div>
-              <img src="./drool-html/images/mail.png" alt="" />
+              <img src="./static/images/mail.png" alt="" />
               <p>demo@gmail.com</p>
             </div>
           </div>
@@ -33,22 +33,22 @@ export function Info(){
             <div className="social_container">
               <div>
                 <a href="">
-                  <img src="./drool-html/images/fb.png" alt="" />
+                  <img src="./static/images/fb.png" alt="" />
                 </a>
               </div>
               <div>
                 <a href="">
-                  <img src="./drool-html/images/twitter.png" alt="" />
+                  <img src="./static/images/twitter.png" alt="" />
                 </a>
               </div>
               <div>
                 <a href="">
-                  <img src="./drool-html/images/linkedin.png" alt="" />
+                  <img src="./static/images/linkedin.png" alt="" />
                 </a>
               </div>
               <div>
                 <a href="">
-                  <img src="./drool-html/images/instagram.png" alt="" />
+                  <img src="./static/images/instagram.png" alt="" />
                 </a>
               </div>
             </div>

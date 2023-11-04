@@ -5,13 +5,13 @@ export function AllCategories(){
           <div className="row">
             <div className="col-md-6">
               <div className="img-box">
-                <img src="./drool-html/images/books-5.png" alt="" />
+                <img src="./static/images/books-5.png" alt="" />
               </div>
             </div>
             <div className="col-md-6">
               <div className="detail-box">
                 <div className="heading_container">
-                  <img src="./drool-html/images/storytelling.png" alt="" />
+                  <img src="./static/images/storytelling.png" alt="" />
                   <h2>Book categories</h2>
                 </div>
                 <p>
@@ -23,7 +23,7 @@ export function AllCategories(){
                 <div className="btn-box">
                   <a href="/categories">
                     <span>See all</span>
-                    <img src="./drool-html/images/link-arrow-1.png" alt="" />
+                    <img src="./static/images/link-arrow-1.png" alt="" />
                   </a>
                 </div>
               </div>

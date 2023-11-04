@@ -12,7 +12,7 @@ export function CreatePage(){
       <div className="col-md-5 offset-md-1">
         <div className="form_container">
           <div className="heading_container">
-            <img src="./drool-html/images/storytelling.png" alt="" />
+            <img src="./static/images/storytelling.png" alt="" />
             <h2>Create a Book</h2>
           </div>
           <form method="POST">
@@ -40,7 +40,7 @@ export function CreatePage(){
       <div classname="col-md-6 px-0">
   <div classname="map_container">
     <div classname="map-responsive">
-      <img src="./drool-html/images/books-7.png" width={500}/>
+      <img src="./static/images/books-7.png" width={500}/>
     </div>
   </div>
 </div>

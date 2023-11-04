@@ -3,7 +3,7 @@ export function FamousBooks(props){
         <section className="food_section layout_padding">
     <div className="container">
       <div className="heading_container">
-        <img src="./drool-html/images/storytelling (1).png" alt="" />
+        <img src="./static/images/storytelling (1).png" alt="" />
         <h2>Top 3 Books</h2>
         <p>
           It is a long established fact that a reader will be distracted by the
@@ -13,7 +13,7 @@ export function FamousBooks(props){
       <div className="food_container">
         <div className="box">
           <div className="img-box">
-            <img src="./drool-html/images/africa.png" alt="" />
+            <img src="./static/images/africa.png" alt="" />
           </div>
           <div className="detail-box">
             <h3>
@@ -25,7 +25,7 @@ export function FamousBooks(props){
         </div>
         <div className="box">
           <div className="img-box">
-            <img src="./drool-html/images/theBee.png" alt="" />
+            <img src="./static/images/theBee.png" alt="" />
           </div>
           <div className="detail-box">
             <h3>
@@ -37,7 +37,7 @@ export function FamousBooks(props){
         </div>
         <div className="box">
           <div className="img-box">
-            <img src="./drool-html/images/ecologyBook.png" alt="" />
+            <img src="./static/images/ecologyBook.png" alt="" />
           </div>
           <div className="detail-box">
             <h3>

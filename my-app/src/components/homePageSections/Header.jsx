@@ -6,7 +6,7 @@ export function Header(){
       <div className="container-fluid">
         <nav className="navbar navbar-expand-lg custom_nav-container">
           <a className="navbar-brand" href="index.html">
-            {/* <img src="./drool-html/images/logo.png" alt="" /> */}
+            {/* <img src="./static/images/logo.png" alt="" /> */}
             <h1>GL</h1>
           </a>
           <div className="" id="">
@@ -86,7 +86,7 @@ export function Header(){
                 </div>
                 <div className="col-md-6">
                   <div className="img-box">
-                    <img src="./drool-html/images/books-4.png" alt="" />
+                    <img src="./static/images/books-4.png" alt="" />
                   </div>
                 </div>
               </div>
@@ -119,7 +119,7 @@ export function Header(){
                 </div>
                 <div className="col-md-6">
                   <div className="img-box">
-                    <img src="./drool-html/images/books-1.png" alt="" />
+                    <img src="./static/images/books-1.png" alt="" />
                   </div>
                 </div>
               </div>
@@ -152,7 +152,7 @@ export function Header(){
                 </div>
                 <div className="col-md-6">
                   <div className="img-box">
-                    <img src="./drool-html/images/books-2.png" alt="" />
+                    <img src="./static/images/books-2.png" alt="" />
                   </div>
                 </div>
               </div>
@@ -185,7 +185,7 @@ export function Header(){
                 </div>
                 <div className="col-md-6">
                   <div className="img-box">
-                    <img src="./drool-html/images/books-3.png" alt="" />
+                    <img src="./static/images/books-3.png" alt="" />
                   </div>
                 </div>
               </div>

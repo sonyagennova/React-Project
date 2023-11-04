@@ -3,7 +3,7 @@ export function ClientSection(){
         <section className="client_section layout_padding">
     <div className="container">
       <div className="heading_container">
-        <img src="./drool-html/images/heading-img.png" alt="" />
+        <img src="./static/images/heading-img.png" alt="" />
         <h2>What Says Our Customer</h2>
         <p>
           It is a long established fact that a reader will be distracted by the
@@ -18,7 +18,7 @@ export function ClientSection(){
           <div className="carousel-item active">
             <div className="box">
               <div className="img-box">
-                <img src="./drool-html/images/client.png" alt="" />
+                <img src="./static/images/client.png" alt="" />
               </div>
               <div className="detail-box">
                 <h4>Jack Mengo</h4>
@@ -27,14 +27,14 @@ export function ClientSection(){
                   by the readable cIt is a long established fact that a reader
                   will be distracted by the readable c
                 </p>
-                <img src="./drool-html/images/quote.png" alt="" />
+                <img src="./static/images/quote.png" alt="" />
               </div>
             </div>
           </div>
           <div className="carousel-item">
             <div className="box">
               <div className="img-box">
-                <img src="./drool-html/images/client.png" alt="" />
+                <img src="./static/images/client.png" alt="" />
               </div>
               <div className="detail-box">
                 <h4>Jack Mengo</h4>
@@ -43,14 +43,14 @@ export function ClientSection(){
                   by the readable cIt is a long established fact that a reader
                   will be distracted by the readable c
                 </p>
-                <img src="./drool-html/images/quote.png" alt="" />
+                <img src="./static/images/quote.png" alt="" />
               </div>
             </div>
           </div>
           <div className="carousel-item">
             <div className="box">
               <div className="img-box">
-                <img src="./drool-html/images/client.png" alt="" />
+                <img src="./static/images/client.png" alt="" />
               </div>
               <div className="detail-box">
                 <h4>Jack Mengo</h4>
@@ -59,7 +59,7 @@ export function ClientSection(){
                   by the readable cIt is a long established fact that a reader
                   will be distracted by the readable c
                 </p>
-                <img src="./drool-html/images/quote.png" alt="" />
+                <img src="./static/images/quote.png" alt="" />
               </div>
             </div>
           </div>

@@ -4,7 +4,7 @@ export function About(){
     <div className="container">
       <div className="detail-box">
         <div className="heading_container">
-          <img src="./drool-html/images/storytelling.png" alt="" />
+          <img src="./static/images/storytelling.png" alt="" />
           <h2>About Us</h2>
         </div>
         <p>
