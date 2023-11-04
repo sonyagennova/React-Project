@@ -25,17 +25,6 @@ export function CategoriesPage(){
                 </p>
               </div>
             </div>
-            <div className="box b2">
-              <div className="img-box">
-                <a href="/nature"><img src="https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?auto=format&fit=crop&q=80&w=2931&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
-              </div>
-              <div className="detail-box">
-                <h5>Nature</h5>
-                <p>
-                  It is a long established fact that a reader will be distracted by
-                </p>
-              </div>
-            </div>
             <div className="box b1">
               <div className="img-box">
                 <a href="/history"><img src="https://images.unsplash.com/photo-1585159858792-ceb6be5c1937?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
@@ -82,7 +71,7 @@ export function CategoriesPage(){
             </div>
             <div className="box b2">
               <div className="img-box">
-                <a href="/mystery"><img src="./drool-html/images/mystery.jpg" alt="" /></a>
+                <a href="/mystery"><img src="./static/images/mystery.jpg" alt="" /></a>
               </div>
               <div className="detail-box">
                 <h5>Mystery</h5>
@@ -97,6 +86,28 @@ export function CategoriesPage(){
               </div>
               <div className="detail-box">
                 <h5>Autobiography</h5>
+                <p>
+                  It is a long established fact that a reader will be distracted by
+                </p>
+              </div>
+            </div>
+            <div className="box b2">
+              <div className="img-box">
+                <a  href="/tragedy"><img src="https://images.unsplash.com/photo-1532598065077-cf9ee59bf91f?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
+              </div>
+              <div className="detail-box">
+                <h5>Tragedy</h5>
+                <p>
+                  It is a long established fact that a reader will be distracted by
+                </p>
+              </div>
+            </div>
+            <div className="box b2">
+              <div className="img-box">
+                <a  href="/classic"><img src="https://images.unsplash.com/photo-1531079997448-485eb7235a2b?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
+              </div>
+              <div className="detail-box">
+                <h5>Classic</h5>
                 <p>
                   It is a long established fact that a reader will be distracted by
                 </p>
