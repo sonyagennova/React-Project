@@ -12,6 +12,7 @@ import { CategoryPage } from "./components/otherPages/CategoryPage"
 import { Login } from "./components/otherPages/LoginPage"
 import { RegisterPage } from "./components/otherPages/RegisterPage"
 import { CreatePage } from "./components/otherPages/createPage"
+import { ReadMore } from "./components/otherPages/ReadMoreINfo"
 
 function App() {
   if(location.pathname == "/categories"){
