@@ -34,6 +34,15 @@
         "description": "A coming-of-age novel featuring the adventures and struggles of a teenage boy in New York City.",
         "imageUrl": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fmedia.npr.org%2Fassets%2Fbakertaylor%2Fcovers%2Fc%2Fcatcher-in-the-rye%2F9780316769488_custom-b6fc2e108f3865eb320720875c20e4f869da8065-s6-c30.jpg&f=1&nofb=1&ipt=92b21f7346af27bc53eac104fed02b72eb1e23e6b126fffb1823622840261aca&ipo=images",
         "category": "Adventure"
-      }
+      },
+  "10b28272-8c7c-4f90-855f-0994b4330a4c": {
+        "title": "The Murder of Roger Ackroyd",
+        "author": "Agatha Christie",
+        "description": "Dr James Sheppard, the story's narrator, lives with his unmarried sister Caroline in the English country village of King’s Abbot. Telling the story in his own words, Dr Sheppard recounts being called to certify the death of a wealthy widow",
+        "publication_year": "1926",
+        "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.storieo.com%2Fwp-content%2Fuploads%2F2017%2F12%2FMurder-of-Roger-Ackroyd.jpg&f=1&nofb=1&ipt=030f78ebdff72c7f35af8864b7e780dce1d72a6a1d33d87401c4c25a6cac8a63&ipo=images",
+        "_id": "10b28272-8c7c-4f90-855f-0994b4330a4c",
+        "category": "Mystery"
+    }
   }
   

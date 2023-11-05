@@ -3,7 +3,9 @@ import * as booksService from "../../utils/booksService";
 import { Footer } from "../homePageSections/Footer";
 import { Info } from "../homePageSections/InfoSection";
 import { BooksItem } from "../partial/BooksItem";
+import { CapitalizeFirstLowercaseRest } from "../partial/FirstLetterCapitel";
 import { Nav } from "../partial/Navbar";
+
 let short_description = "";
 
 export function CategoryPage(props){
@@ -14,14 +16,36 @@ export function CategoryPage(props){
             .catch(err => console.log(err))
     }, [])
     let ifBook = false;
-    let categoryBook;
+    let categoryBook = [];
 
         books.forEach(book => {
-            if(location.pathname.includes(book.category.toString().toLowerCase())){
+            if(location.pathname.includes(String(book.category).toLowerCase())){
                 ifBook = true;
-                categoryBook = book;
+                categoryBook.push(book);
+                if(book.description.length > 80){
+                    short_description = book.description.substring(0, 80) + "...";
+                } else {
+                    short_description = description;
+                }
             } 
         });
+
+        let categoryBooks = [];
+        let category = "";
+
+        categoryBook.forEach(book => {categoryBooks.push(
+            <BooksItem
+                        key={book._id}
+                        bookId={book._id}
+                        title={book.title}
+                        author={book.author}
+                        publicationYear={book.publication_year}
+                        description={short_description}
+                        imageUrl={book.imageUrl}
+                        category={book.category}
+                    />
+            
+        ); category = CapitalizeFirstLowercaseRest(book.category);})
 
     return(
         <>
@@ -30,16 +54,14 @@ export function CategoryPage(props){
                     <Nav />
                 </div>
                 {ifBook?
-                        <BooksItem
-                        key={categoryBook._id}
-                        bookId={categoryBook._id}
-                        title={categoryBook.title}
-                        author={categoryBook.author}
-                        publicationYear={categoryBook.publication_year}
-                        description={categoryBook.description}
-                        imageUrl={categoryBook.imageUrl}
-                        category={categoryBook.category}
-                    />:
+                    <>
+                        <h1>{category} Category Books</h1> 
+                        <div className="container">
+                            <div className="animal_container">
+                                {categoryBooks}
+                            </div>
+                        </div>
+                    </>:
                     <div className="container">
                     <div className="animal_container">
                     

@@ -25,3 +25,27 @@ export const getOne = async (bookId) => {
 
     return result;
 };
+
+export const create = async (data) => {
+    const body = {
+        title: data.title,
+        author: data.author,
+        description: data.description,
+        publication_year: data.publication_year,
+        imageUrl: data.imageUrl,
+        category: data.category,
+    };
+
+    const response = await fetch(baseUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+    })
+
+    const result = await response.json();
+    console.log(result);
+
+    return result;
+};
