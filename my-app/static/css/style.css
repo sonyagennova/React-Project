@@ -1074,6 +1074,17 @@ a:focus {
   color: #101010;
 }
 
+.contact_section select {
+  width: 100%;
+  border: none;
+  height: 50px;
+  margin-bottom: 25px;
+  padding-left: 15px;
+  background-color: #ebebeb;
+  outline: none;
+  color: #101010;
+}
+
 .contact_section input::-webkit-input-placeholder {
   color: #979696;
 }
