@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Header(){
     return(
         <div className="hero_area ">
@@ -5,10 +7,10 @@ export function Header(){
     <header className="header_section">
       <div className="container-fluid">
         <nav className="navbar navbar-expand-lg custom_nav-container">
-          <a className="navbar-brand" href="index.html">
+          <Link className="navbar-brand" to="index.html">
             {/* <img src="./static/images/logo.png" alt="" /> */}
             <h1>GL</h1>
-          </a>
+          </Link>
           <div className="" id="">
             <div className="User_option">
               <form className="form-inline my-2  mb-3 mb-lg-0">
@@ -28,12 +30,12 @@ export function Header(){
             </div>
             <div id="myNav" className="overlay">
               <div className="overlay-content">
-                <a href="index.html">Home</a>
-                <a href="/categories">Categories</a>
-                <a href="/add">Create Book</a>
-                <a href="/login">Login</a>
-                <a href="/register">Register</a>
-                <a href="logout">Logout</a>
+                <Link to="index.html">Home</Link>
+                <Link to="/categories">Categories</Link>
+                <Link to="/add">Create Book</Link>
+                <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
+                <Link to="logout">Logout</Link>
               </div>
             </div>
           </div>
@@ -75,12 +77,12 @@ export function Header(){
                       sed do eiusmod tempor incididunt
                     </p>
                     <div className="btn-box">
-                      <a href="" className="btn-1">
+                      <Link to="" className="btn-1">
                         Read More
-                      </a>
-                      <a href="" className="btn-2">
+                      </Link>
+                      <Link to="" className="btn-2">
                         Contact Us
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -108,12 +110,12 @@ export function Header(){
                       sed do eiusmod tempor incididunt
                     </p>
                     <div className="btn-box">
-                      <a href="" className="btn-1">
+                      <Link to="" className="btn-1">
                         Read More
-                      </a>
-                      <a href="" className="btn-2">
+                      </Link>
+                      <Link to="" className="btn-2">
                         Contact Us
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -141,12 +143,12 @@ export function Header(){
                       sed do eiusmod tempor incididunt
                     </p>
                     <div className="btn-box">
-                      <a href="" className="btn-1">
+                      <Link to="" className="btn-1">
                         Read More
-                      </a>
-                      <a href="" className="btn-2">
+                      </Link>
+                      <Link to="" className="btn-2">
                         Contact Us
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -174,12 +176,12 @@ export function Header(){
                       sed do eiusmod tempor incididunt
                     </p>
                     <div className="btn-box">
-                      <a href="" className="btn-1">
+                      <Link to="" className="btn-1">
                         Read More
-                      </a>
-                      <a href="" className="btn-2">
+                      </Link>
+                      <Link to="" className="btn-2">
                         Contact Us
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

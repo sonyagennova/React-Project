@@ -1,6 +1,9 @@
 import { Footer } from "../homePageSections/Footer";
 import { Info } from "../homePageSections/InfoSection";
 import { Nav } from "../partial/Navbar";
+import { CapitalizeFirstLowercaseRest } from "../partial/FirstLetterCapitel";
+import { Link } from "react-router-dom";
+import { Fragment } from "react";
 
 export function CategoriesPage(){
     return(
@@ -16,7 +19,9 @@ export function CategoriesPage(){
             
             <div className="box b1">
               <div className="img-box">
-                <a href="/category/kids"><img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
+                <Fragment>
+                <Link to="/category/kids"><img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></Link>
+                </Fragment>
               </div>
               <div className="detail-box">
                 <h5>Kids</h5>
@@ -27,7 +32,7 @@ export function CategoriesPage(){
             </div>
             <div className="box b1">
               <div className="img-box">
-                <a href="/category/history"><img src="https://images.unsplash.com/photo-1585159858792-ceb6be5c1937?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
+                <Link to="/category/history"><img src="https://images.unsplash.com/photo-1585159858792-ceb6be5c1937?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></Link>
               </div>
               <div className="detail-box">
                 <h5>History</h5>
@@ -38,7 +43,7 @@ export function CategoriesPage(){
             </div>
             <div className="box b2">
               <div className="img-box">
-                <a href="/category/fantasy"><img src="https://images.unsplash.com/photo-1573689705959-7786e029b31e?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
+                <Link to="/category/fantasy"><img src="https://images.unsplash.com/photo-1573689705959-7786e029b31e?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></Link>
               </div>
               <div className="detail-box">
                 <h5>Fantasy</h5>
@@ -49,7 +54,7 @@ export function CategoriesPage(){
             </div>
             <div className="box b2">
               <div className="img-box">
-                <a href="/category/romance"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&q=80&w=2973&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
+                <Link to="/category/romance"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&q=80&w=2973&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></Link>
               </div>
               <div className="detail-box">
                 <h5>Romance</h5>
@@ -60,7 +65,7 @@ export function CategoriesPage(){
             </div>
             <div className="box b2">
               <div className="img-box">
-                <a href="/category/adventure"><img src="https://images.unsplash.com/photo-1571782605941-8c8fd0d43df6?auto=format&fit=crop&q=80&w=2000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
+                <Link to="/category/adventure"><img src="https://images.unsplash.com/photo-1571782605941-8c8fd0d43df6?auto=format&fit=crop&q=80&w=2000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></Link>
               </div>
               <div className="detail-box">
                 <h5>Adventure</h5>
@@ -71,7 +76,7 @@ export function CategoriesPage(){
             </div>
             <div className="box b2">
               <div className="img-box">
-                <a href="/category/mystery"><img src="./static/images/mystery.jpg" alt="" /></a>
+                <Link to="/category/mystery"><img src="./static/images/mystery.jpg" alt="" /></Link>
               </div>
               <div className="detail-box">
                 <h5>Mystery</h5>
@@ -82,7 +87,7 @@ export function CategoriesPage(){
             </div>
             <div className="box b2">
               <div className="img-box">
-                <a  href="/category/autobiography"><img src="https://images.unsplash.com/photo-1619878473858-ace2b236897c?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
+                <Link  to="/category/autobiography"><img src="https://images.unsplash.com/photo-1619878473858-ace2b236897c?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></Link>
               </div>
               <div className="detail-box">
                 <h5>Autobiography</h5>
@@ -93,7 +98,7 @@ export function CategoriesPage(){
             </div>
             <div className="box b2">
               <div className="img-box">
-                <a  href="/category/tragedy"><img src="https://images.unsplash.com/photo-1532598065077-cf9ee59bf91f?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
+                <Link  to="/category/tragedy"><img src="https://images.unsplash.com/photo-1532598065077-cf9ee59bf91f?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></Link>
               </div>
               <div className="detail-box">
                 <h5>Tragedy</h5>
@@ -104,7 +109,7 @@ export function CategoriesPage(){
             </div>
             <div className="box b2">
               <div className="img-box">
-                <a  href="/category/classic"><img src="https://images.unsplash.com/photo-1531079997448-485eb7235a2b?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></a>
+                <Link  to="/category/classic"><img src="https://images.unsplash.com/photo-1531079997448-485eb7235a2b?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></Link>
               </div>
               <div className="detail-box">
                 <h5>Classic</h5>

@@ -1,3 +1,6 @@
+import { Fragment } from "react";
+import { Link } from "react-router-dom";
+
 export function NavLogin(){
     return(
         <>
@@ -7,9 +10,9 @@ export function NavLogin(){
 <header className="header_section">
   <div className="container-fluid">
     <nav className="navbar navbar-expand-lg custom_nav-container">
-      <a className="navbar-brand" href="index.html">
+      <Link className="navbar-brand" to="/">
         <h1>GL</h1>
-      </a>
+      </Link>
       <div className="" id="">
         <div className="User_option">
           <form className="form-inline my-2  mb-3 mb-lg-0">
@@ -26,12 +29,14 @@ export function NavLogin(){
         </div>
         <div id="myNav" className="overlay">
           <div className="overlay-content">
-          <a href="index.html">Home</a>
-          <a href="/categories">Categories</a>
-                <a href="/add">Create Book</a>
-                <a href="/login">Login</a>
-                <a href="/register">Register</a>
-                <a href="/logout">Logout</a>
+            
+                <Link to="/">Home</Link>
+                <Link to="/categories">Categories</Link>
+                <Link to="/add">Create Book</Link>
+                <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
+                <Link to="/logout">Logout</Link>
+            
           </div>
         </div>
       </div>

@@ -13,49 +13,25 @@ import { Login } from "./components/otherPages/LoginPage"
 import { RegisterPage } from "./components/otherPages/RegisterPage"
 import { CreatePage } from "./components/otherPages/createPage"
 import { ReadMore } from "./components/otherPages/ReadMoreINfo"
+import { Route, Routes } from "react-router-dom"
+import { HomePage } from "./components/homePageSections/homePage"
+
 
 function App() {
-  if(location.pathname == "/categories"){
-      return(
-        <>
-          <CategoriesPage />
-        </>
-      )
-  } else if(location.pathname.includes("/category/")){
-    return(
-      <>
-        <CategoryPage/>
-      </>
-    )
-  } else if(location.pathname == "/login"){
-    return(
-      <>
-        <Login />
-      </>
-    )
-  } else if(location.pathname == "/register"){
-    return(
-      <RegisterPage />
-    )
-  } else if(location.pathname == "/add"){
-    return(
-      <CreatePage />
-    )
-  } else {
     return (
       <>
-      <Header />
-      <About />
-      <BookCategory />
-      <AllCategories />
-      <FamousBooks books={topBooks}/>
-      <Info />
-      <Footer />
+      <Routes>
+      <Route path="/" element={<HomePage/>}/>
+        <Route path="/categories" element={<CategoriesPage/>}/>
+        <Route path="/category/:category" element={<CategoryPage/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<RegisterPage/>}/>
+        <Route path="/add" element={<CreatePage/>}/>
+      </Routes>
   </>
   
     )
 
   }
-}
 
 export default App
