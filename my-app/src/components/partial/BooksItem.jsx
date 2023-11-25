@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {ReadMore} from "../otherPages/ReadMoreINfo";
 
 export function BooksItem({
@@ -11,6 +12,7 @@ export function BooksItem({
     category,
     onInfoClick
 }) {
+
     const infoClickHandler = () => {
         onInfoClick(bookId);
     };
@@ -26,16 +28,14 @@ export function BooksItem({
         <> 
                 <div className="box b1" id={bookId}>
                     <div className="img-box">
-                        <a><img src={imageUrl}
-                            alt={title}/></a>
+                        <Link><img src={imageUrl}
+                            alt={title}/></Link>
                     </div>
                     <div className="detail-box">
                         <h5>{title}</h5>
                         <p> {shortDescription} </p>
-                        <button className="page-a"
-                        onClick={infoClickHandler}
-                           //onClick={(e) => {isClicked(true); setData(e.target.parentNode.parentNode); OnClicked(clicked); SeeData(data); location.href = `http://localhost:5173/readmore`;}}
-                           >Read More</button>
+                        <Link className="page-a"
+                        onClick={infoClickHandler}>Read More</Link>
                     </div>
                 </div>
             
