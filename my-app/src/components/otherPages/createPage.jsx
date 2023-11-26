@@ -2,6 +2,7 @@ import { Footer } from "../homePageSections/Footer";
 import { Info } from "../homePageSections/InfoSection";
 import { NavLogin } from "../partial/NavbarLogin";
 import * as bookService from "../../utils/booksService"
+import { useNavigate } from "react-router-dom";
 //import * as bookCreateHandler from "../otherPages/CategoryPage";
 
 export function CreatePage(){
@@ -9,12 +10,13 @@ export function CreatePage(){
     // Stop page from refreshing
     e.preventDefault();
 
+
     // Get data from form data
     const data = Object.fromEntries(new FormData(e.target.form));
 
     // Create new user at the server
     await bookService.create(data);
-    location.href = "http://localhost:5173/categories"
+    useNavigate("/categories")
   };
     return(
         <>
