@@ -51,7 +51,7 @@ export const login = async(data) =>{
         body: JSON.stringify(body),
     })
     const result = await response.json();
-    console.log(result);
+    console.log(result.accessToken);
 
     // if(result.code !== 200){
     //     alert(result.message)
@@ -59,7 +59,7 @@ export const login = async(data) =>{
     // }
 
 
-    sessionStorage.setItem("accessToken", result.accessToken);
+    localStorage.setItem("accessToken", result.accessToken);
 
     return result;
 }
@@ -70,5 +70,5 @@ export const logout = async() =>{
         //headers: {"X-Authorization": accessToken}
     })
 
-    sessionStorage.clear();
+    localStorage.removeItem("accessToken")
 }
