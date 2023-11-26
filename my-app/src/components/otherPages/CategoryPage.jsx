@@ -14,10 +14,14 @@ export function CategoryPage(){
     const [selectedBook, setSelectedBook] = useState(null);
     const [showInfo, setShowInfo] = useState(false);
 
-    const bookInfoClickHandler = async (bookId) => {
+    const bookInfoClickHandler = (bookId) => {
         setSelectedBook(bookId);
         setShowInfo(true);
     };
+
+    const bookInfoCloseHandler = () => {
+        setShowInfo(false);
+    }
 
     const [books, setBooks] = useState([]);
     useEffect(() => {
@@ -61,12 +65,14 @@ export function CategoryPage(){
 
     return(
         <>
-        {showInfo? (
-                <ReadMore
-                    bookId={selectedBook}
-                />
-            ):
             <section className="animal_section1">
+            {showInfo &&
+                <ReadMore
+                    key={selectedBook}
+                    bookId={selectedBook}
+                    infoClose={bookInfoCloseHandler}
+                />}
+                <>
                 <div className="container-fluid">
                     <Nav />
                 </div>
@@ -105,10 +111,12 @@ export function CategoryPage(){
 
                     </div>
                 </div>
-            }
-            </section>}
+                }
+                </>
+            </section>
             <Info />
             <Footer />
-</>
+            
+        </>
     )
 }
