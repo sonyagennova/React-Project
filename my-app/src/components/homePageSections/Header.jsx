@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { logout } from "../../utils/logout";
+import * as userService from "../../utils/userService"
 
-export function Header(){
+export function Header({isRegistered}){
     return(
         <div className="hero_area ">
     {/* header section strats */}
@@ -30,12 +32,16 @@ export function Header(){
             </div>
             <div id="myNav" className="overlay">
               <div className="overlay-content">
-                <Link to="index.html">Home</Link>
+              <Link to="/">Home</Link>
                 <Link to="/categories">Categories</Link>
-                <Link to="/add">Create Book</Link>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
-                <Link to="logout">Logout</Link>
+                {localStorage.getItem("accessToken")?
+                  <>
+                  {/* <h1>Hello, </h1> */}
+                  <Link to="/add">Create Book</Link>
+                  <Link onClick={logout}>Logout</Link></>:
+                  <><Link to="/login">Login</Link>
+                  <Link to="/register">Register</Link></>
+                }
               </div>
             </div>
           </div>

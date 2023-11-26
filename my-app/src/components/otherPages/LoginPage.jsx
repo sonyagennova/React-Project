@@ -1,8 +1,27 @@
 import {Footer} from "../homePageSections/Footer";
 import {Info} from "../homePageSections/InfoSection";
 import {NavLogin} from "../partial/NavbarLogin";
+import * as userService from "../../utils/userService"
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
+    const navigate = useNavigate();
+
+    async function login(e){
+        e.preventDefault();
+    
+        // Get data from form data
+        const data = Object.fromEntries(new FormData(e.target.form));
+    
+        // Create new user at the server
+        await userService.login(data);
+
+        // setSession(sessionStorage.setItem("accessToken", login.accessToken))
+
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+        navigate("/");
+      }
     return (
         <>
             <NavLogin/>
@@ -17,13 +36,13 @@ export function Login() {
                                 </div>
                                 <form method="POST">
                                     <div>
-                                        <input type="text" placeholder="Email"/>
+                                        <input type="text" placeholder="Email" id="email"/>
                                     </div>
                                     <div>
-                                        <input type="password" placeholder="Password"/>
+                                        <input type="password" placeholder="Password" id="password"/>
                                     </div>
                                     <div className="d-flex ">
-                                        <button>LOGIN</button>
+                                        <button onClick={login}>LOGIN</button>
                                     </div>
                                 </form>
                             </div>
