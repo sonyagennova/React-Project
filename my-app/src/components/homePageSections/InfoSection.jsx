@@ -32,24 +32,24 @@ export function Info(){
             <h5>social media</h5>
             <div className="social_container">
               <div>
-                <a href="">
+                <Link href="">
                   <img src="./static/images/fb.png" alt="" />
-                </a>
+                </Link>
               </div>
               <div>
-                <a href="">
+                <Link href="">
                   <img src="./static/images/twitter.png" alt="" />
-                </a>
+                </Link>
               </div>
               <div>
-                <a href="">
+                <Link href="">
                   <img src="./static/images/linkedin.png" alt="" />
-                </a>
+                </Link>
               </div>
               <div>
-                <a href="">
+                <Link href="">
                   <img src="./static/images/instagram.png" alt="" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

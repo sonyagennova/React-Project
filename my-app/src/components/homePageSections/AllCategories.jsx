@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function AllCategories(){
     return(
         <section className="pet_section layout_padding">
@@ -21,10 +23,10 @@ export function AllCategories(){
                   distribution of letters,
                 </p>
                 <div className="btn-box">
-                  <a href="/categories">
+                  <Link href="/categories">
                     <span>See all</span>
                     <img src="./static/images/link-arrow-1.png" alt="" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

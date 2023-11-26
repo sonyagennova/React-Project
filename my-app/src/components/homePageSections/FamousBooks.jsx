@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function FamousBooks(props){
     return(
         <section className="food_section layout_padding">
@@ -20,7 +22,7 @@ export function FamousBooks(props){
               <p>{props.books[0].name}</p>
               <p>{props.books[0].year}</p>
             </h3>
-            <a href="">Read Now</a>
+            <Link href="">Read Now</Link>
           </div>
         </div>
         <div className="box">
@@ -32,7 +34,7 @@ export function FamousBooks(props){
               <p>{props.books[1].name}</p>
               <p>{props.books[1].year}</p>
             </h3>
-            <a href="">Read Now</a>
+            <Link href="">Read Now</Link>
           </div>
         </div>
         <div className="box">
@@ -44,7 +46,7 @@ export function FamousBooks(props){
               <p>{props.books[2].name}</p>
               <p>{props.books[2].year}</p>
             </h3>
-            <a href="">Read Now</a>
+            <Link href="">Read Now</Link>
           </div>
         </div>
       </div>
