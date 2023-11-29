@@ -1,48 +1,77 @@
 {
-  "1":{
-        "_id": "1",
-        "title": "To Kill a Mockingbird",
-        "author": "Harper Lee",
-        "publication_year": 1960,
-        "description": "A classic novel set in the American South during the 1930s, dealing with the issues of racial injustice and moral growth.",
-        "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.penguin.com.au%2Fcovers%2Foriginal%2F9781784870799.jpg&f=1&nofb=1&ipt=e130c7381c3f7fc164999a766114478fc137c29ce644e5276484b924d73522ee&ipo=images",
-        "category": "Classic"
-      },
-  "3":{
-        "_id": "3",
-        "title": "The Great Gatsby",
-        "author": "F. Scott Fitzgerald",
-        "publication_year": 1925,
-        "description": "A story of the decadent 1920s, the American Dream, and the complexities of human nature.",
-        "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F83%2F9c%2Ffa%2F839cfa60faa10999f6d1b73251da5dc4.jpg&f=1&nofb=1&ipt=bbca525d76056e873ccf2d50d389bc1628afe2215a34912c8d77bd9511156ad4&ipo=images",
-        "category": "Tragedy"
-      },
-  "4":{
-        "_id": "4",
-        "title": "Pride and Prejudice",
-        "author": "Jane Austen",
-        "publication_year": 1813,
-        "description": "A classic romance novel exploring themes of love, class, and societal expectations.",
-        "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.penguin.com.au%2Fcovers%2Foriginal%2F9780141330167.jpg&f=1&nofb=1&ipt=6e299c6cbed98a0142bc35b3e57980a3151ff3a2c4c67c74a3a9c61ba9e76794&ipo=images",
-        "category": "Romance"
-      },
-  "5":{
-        "_id": "5",
-        "title": "The Catcher in the Rye",
-        "author": "J.D. Salinger",
-        "publication_year": 1951,
-        "description": "A coming-of-age novel featuring the adventures and struggles of a teenage boy in New York City.",
-        "imageUrl": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fmedia.npr.org%2Fassets%2Fbakertaylor%2Fcovers%2Fc%2Fcatcher-in-the-rye%2F9780316769488_custom-b6fc2e108f3865eb320720875c20e4f869da8065-s6-c30.jpg&f=1&nofb=1&ipt=92b21f7346af27bc53eac104fed02b72eb1e23e6b126fffb1823622840261aca&ipo=images",
-        "category": "Adventure"
-      },
+  "1": {
+      "_id": "1",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "publication_year": 1960,
+      "description": "A classic novel set in the American South during the 1930s, dealing with the issues of racial injustice and moral growth.",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.penguin.com.au%2Fcovers%2Foriginal%2F9781784870799.jpg&f=1&nofb=1&ipt=e130c7381c3f7fc164999a766114478fc137c29ce644e5276484b924d73522ee&ipo=images",
+      "category": "Classic"
+  },
+  "3": {
+      "_id": "3",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "publication_year": 1925,
+      "description": "A story of the decadent 1920s, the American Dream, and the complexities of human nature.",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F83%2F9c%2Ffa%2F839cfa60faa10999f6d1b73251da5dc4.jpg&f=1&nofb=1&ipt=bbca525d76056e873ccf2d50d389bc1628afe2215a34912c8d77bd9511156ad4&ipo=images",
+      "category": "Tragedy"
+  },
+  "4": {
+      "_id": "4",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "publication_year": 1813,
+      "description": "A classic romance novel exploring themes of love, class, and societal expectations.",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.penguin.com.au%2Fcovers%2Foriginal%2F9780141330167.jpg&f=1&nofb=1&ipt=6e299c6cbed98a0142bc35b3e57980a3151ff3a2c4c67c74a3a9c61ba9e76794&ipo=images",
+      "category": "Romance"
+  },
+  "5": {
+      "_id": "5",
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "publication_year": 1951,
+      "description": "A coming-of-age novel featuring the adventures and struggles of a teenage boy in New York City.",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fmedia.npr.org%2Fassets%2Fbakertaylor%2Fcovers%2Fc%2Fcatcher-in-the-rye%2F9780316769488_custom-b6fc2e108f3865eb320720875c20e4f869da8065-s6-c30.jpg&f=1&nofb=1&ipt=92b21f7346af27bc53eac104fed02b72eb1e23e6b126fffb1823622840261aca&ipo=images",
+      "category": "Adventure"
+  },
   "10b28272-8c7c-4f90-855f-0994b4330a4c": {
-        "title": "The Murder of Roger Ackroyd",
-        "author": "Agatha Christie",
-        "description": "Dr James Sheppard, the story's narrator, lives with his unmarried sister Caroline in the English country village of King’s Abbot. Telling the story in his own words, Dr Sheppard recounts being called to certify the death of a wealthy widow",
-        "publication_year": "1926",
-        "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.storieo.com%2Fwp-content%2Fuploads%2F2017%2F12%2FMurder-of-Roger-Ackroyd.jpg&f=1&nofb=1&ipt=030f78ebdff72c7f35af8864b7e780dce1d72a6a1d33d87401c4c25a6cac8a63&ipo=images",
-        "_id": "10b28272-8c7c-4f90-855f-0994b4330a4c",
-        "category": "Mystery"
-    }
+      "title": "The Murder of Roger Ackroyd",
+      "author": "Agatha Christie",
+      "description": "Dr James Sheppard, the story's narrator, lives with his unmarried sister Caroline in the English country village of King’s Abbot. Telling the story in his own words, Dr Sheppard recounts being called to certify the death of a wealthy widow",
+      "publication_year": "1926",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.storieo.com%2Fwp-content%2Fuploads%2F2017%2F12%2FMurder-of-Roger-Ackroyd.jpg&f=1&nofb=1&ipt=030f78ebdff72c7f35af8864b7e780dce1d72a6a1d33d87401c4c25a6cac8a63&ipo=images",
+      "_id": "10b28272-8c7c-4f90-855f-0994b4330a4c",
+      "category": "Mystery"
+  },
+  "7e309fe9-9e9c-4a97-8c64-a90d47deebf6": {
+      "title": "The Cat in the Hat",
+      "author": "Dr. Seuss",
+      "description": "The story centers on a tall anthropomorphic cat who wears a red and white-striped top hat and a red bow tie. The Cat shows up at the house of Sally and her brother one rainy day when their mother is away. Despite the repeated objections of the children's fish, the Cat shows the children a few of his tricks in an attempt to entertain them. In the process, he and his companions, Thing One and Thing Two, wreck the house. As the children and the fish become more alarmed, the Cat produces a machine that he uses to clean everything up and disappears just before the children's mother comes home.",
+      "publication_year": "1957",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Frukminim1.flixcart.com%2Fimage%2F1408%2F1408%2Fbook%2F1%2F6%2F1%2Fthe-cat-in-the-hat-original-imadk6nwggsksayh.jpeg%3Fq%3D90&f=1&nofb=1&ipt=272fcba53b350e84c46c1ed890905cb57218210875afc5befa127a3fde639e87&ipo=images",
+      "category": "kids",
+      "ownerId": null,
+      "_id": "7e309fe9-9e9c-4a97-8c64-a90d47deebf6"
+  },
+  "7fbd257a-01fe-48a8-98bf-b86a6cb9d35e": {
+      "title": "The Sword in the Stone",
+      "author": "T. H. White",
+      "description": "The Wart is an orphan boy being raised by Sir Ector in the Castle Sauvage surrounded by the Forest of the same name. Alongside Ector's son Kay, Wart is training as a knight, although he can only rise to be Kay's squire because he is of common birth. Chasing a tiercel goshawk that Kay had let get away during their falconry practice, Wart gets lost in the Forest Sauvage. He is shot at by an unseen bowman, and he encounters King Pellinore who is busy hunting the Questing Beast. Eventually, he meets the wizard Merlyn who is living backward in time, and frequently speaks of things that he has seen in the future.",
+      "publication_year": "1938",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Falchetron.com%2Fcdn%2Fthe-sword-in-the-stone-novel-b299059c-bea1-4cbd-ae1a-f5bb8496071-resize-750.jpeg&f=1&nofb=1&ipt=ff0b694a43cff6670e715cc7e0f8e60fb0c8ab5d035cb2143c4a0916d9a45831&ipo=images",
+      "category": "fantasy",
+      "ownerId": null,
+      "_id": "7fbd257a-01fe-48a8-98bf-b86a6cb9d35e"
+  },
+  "f76abdb2-74a2-42ba-a7ed-6b71df837155": {
+      "title": "Hundred Years' War on Palestine",
+      "author": "Rashid Khalidi",
+      "description": "The author describes the Zionist claim to Palestine in the century spanning 1917–2017 as late settler colonialism and an instrument of British and then later American imperialism, doing so by focusing on a series of six major episodes the author characterizes as \"declarations of war\" on the Palestinian people. In the book, Khalidi—historian and Edward Said Professor of Modern Arab Studies at Columbia University—argues that the struggle in Palestine should be understood, not as one between two equal national movements fighting over the same land, but rather as \"a colonial war waged against the indigenous population, by a variety of parties, to force them to relinquish their homeland to another people against their will.\"",
+      "publication_year": "2020",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.kractivist.org%2Fwp-content%2Fuploads%2F2020%2F07%2F100years-600x912.jpg&f=1&nofb=1&ipt=18d89d129009944b148bc34fed89be82bfdfd344976c4b43962c24c47e11c38f&ipo=images",
+      "category": "history",
+      "ownerId": "0d9e6ce5-3882-40b5-83bf-e052986fb3a5",
+      "_id": "f76abdb2-74a2-42ba-a7ed-6b71df837155"
   }
-  
+}
