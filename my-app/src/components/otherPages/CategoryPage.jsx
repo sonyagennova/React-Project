@@ -8,8 +8,6 @@ import { CapitalizeFirstLowercaseRest } from "../partial/FirstLetterCapitel";
 import { Nav } from "../partial/Navbar";
 import { ReadMore } from "./ReadMoreINfo";
 
-let short_description = "";
-
 export function CategoryPage(){
     const [selectedBook, setSelectedBook] = useState(null);
     const [showInfo, setShowInfo] = useState(false);
@@ -37,11 +35,6 @@ export function CategoryPage(){
             if(location.pathname.includes(String(book.category).toLowerCase())){
                 ifBook = true;
                 categoryBook.push(book);
-                if(book.description.length > 80){
-                    short_description = book.description.substring(0, 80) + "...";
-                } else {
-                    short_description = description;
-                }
             } 
         });
 
@@ -55,7 +48,6 @@ export function CategoryPage(){
                         title={book.title}
                         author={book.author}
                         publicationYear={book.publication_year}
-                        description={short_description}
                         imageUrl={book.imageUrl}
                         category={book.category}
                         onInfoClick={bookInfoClickHandler}
@@ -71,6 +63,7 @@ export function CategoryPage(){
                     key={selectedBook}
                     bookId={selectedBook}
                     infoClose={bookInfoCloseHandler}
+                    show={showInfo}
                 />}
                 <>
                 <div className="container-fluid">

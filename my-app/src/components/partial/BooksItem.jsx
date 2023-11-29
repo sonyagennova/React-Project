@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {ReadMore} from "../otherPages/ReadMoreINfo";
+//import {ReadMore} from "../otherPages/ReadMoreINfo";
 
 export function BooksItem({
     bookId,
     title,
     author,
     publicationYear,
-    description,
     imageUrl,
     category,
     onInfoClick
@@ -17,13 +16,6 @@ export function BooksItem({
         onInfoClick(bookId);
     };
 
-    let shortDescription = "";
-
-    if (description.length > 80) {
-        shortDescription = description.substring(0, 80) + "...";
-    } else {
-        shortDescription = description;
-    }
     return (
         <> 
                 <div className="box b1" id={bookId}>
@@ -33,7 +25,7 @@ export function BooksItem({
                     </div>
                     <div className="detail-box">
                         <h5>{title}</h5>
-                        <p> {shortDescription} </p>
+                        <h7>{author}</h7>
                         <Link className="page-a"
                         onClick={infoClickHandler}>Read More</Link>
                     </div>
