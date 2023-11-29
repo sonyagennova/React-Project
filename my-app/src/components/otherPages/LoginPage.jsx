@@ -14,7 +14,13 @@ export function Login() {
         const data = Object.fromEntries(new FormData(e.target.form));
     
         // Create new user at the server
-        await userService.login(data);
+        try{
+            await userService.login(data);
+        } catch(error){
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+            throw new Error(error);
+        }
 
         // setSession(sessionStorage.setItem("accessToken", login.accessToken))
 
@@ -36,10 +42,10 @@ export function Login() {
                                 </div>
                                 <form method="POST">
                                     <div>
-                                        <input type="text" placeholder="Email" id="email"/>
+                                        <input type="text" name="email" placeholder="Email" id="email"/>
                                     </div>
                                     <div>
-                                        <input type="password" placeholder="Password" id="password"/>
+                                        <input type="password" name="password" placeholder="Password" id="password"/>
                                     </div>
                                     <div className="d-flex ">
                                         <button onClick={login}>LOGIN</button>

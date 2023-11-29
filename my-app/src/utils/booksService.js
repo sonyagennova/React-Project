@@ -26,7 +26,7 @@ export const getOne = async (bookId) => {
     return result;
 };
 
-export const create = async (data) => {
+export const create = async (data, accessToken) => {
     const body = {
         title: data.title,
         author: data.author,
@@ -34,6 +34,7 @@ export const create = async (data) => {
         publication_year: data.publication_year,
         imageUrl: data.imageUrl,
         category: data.category,
+        ownerId: accessToken
     };
 
     const response = await fetch(baseUrl, {
@@ -45,7 +46,7 @@ export const create = async (data) => {
     })
 
     const result = await response.json();
-    console.log(result);
+    //console.log(result);
 
     return result;
 };

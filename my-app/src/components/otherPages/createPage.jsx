@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 //import * as bookCreateHandler from "../otherPages/CategoryPage";
 
 export function CreatePage(){
+  const navigate = useNavigate();
   const bookCreateHandler = async (e) => {
     // Stop page from refreshing
     e.preventDefault();
@@ -13,10 +14,11 @@ export function CreatePage(){
 
     // Get data from form data
     const data = Object.fromEntries(new FormData(e.target.form));
+    const accessToken = localStorage.getItem("accessToken")
 
     // Create new user at the server
-    await bookService.create(data);
-    useNavigate("/categories")
+    await bookService.create(data, accessToken);
+    navigate("/categories")
   };
     return(
         <>
