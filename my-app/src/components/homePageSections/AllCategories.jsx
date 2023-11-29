@@ -23,7 +23,7 @@ export function AllCategories(){
                   distribution of letters,
                 </p>
                 <div className="btn-box">
-                  <Link href="/categories">
+                  <Link to="/categories">
                     <span>See all</span>
                     <img src="./static/images/link-arrow-1.png" alt="" />
                   </Link>

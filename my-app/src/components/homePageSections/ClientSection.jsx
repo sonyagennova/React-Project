@@ -69,7 +69,7 @@ export function ClientSection(){
         <div className="carousel_btn-box">
           <Link
             className="carousel-control-prev"
-            href="#carouselExampleControls"
+            to="#carouselExampleControls"
             role="button"
             data-slide="prev"
           >
@@ -77,7 +77,7 @@ export function ClientSection(){
           </Link>
           <Link
             className="carousel-control-next"
-            href="#carouselExampleControls"
+            to="#carouselExampleControls"
             role="button"
             data-slide="next"
           >

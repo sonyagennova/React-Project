@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Info(){
     return(
         <section className="info_section ">
@@ -32,22 +34,22 @@ export function Info(){
             <h5>social media</h5>
             <div className="social_container">
               <div>
-                <Link href="">
+                <Link to="">
                   <img src="./static/images/fb.png" alt="" />
                 </Link>
               </div>
               <div>
-                <Link href="">
+                <Link to="">
                   <img src="./static/images/twitter.png" alt="" />
                 </Link>
               </div>
               <div>
-                <Link href="">
+                <Link to="">
                   <img src="./static/images/linkedin.png" alt="" />
                 </Link>
               </div>
               <div>
-                <Link href="">
+                <Link to="">
                   <img src="./static/images/instagram.png" alt="" />
                 </Link>
               </div>
