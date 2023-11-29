@@ -1,5 +1,5 @@
-const baseUrlRegister = "http://localhost:3030/jsonstore/users/register";
-const loginUrl = "http://localhost:3030/jsonstore/users/login"
+const baseUrlRegister = "http://localhost:3030/users/register";
+const loginUrl = "http://localhost:3030/users/login"
 const logoutUrl = "http://localhost:3030/jsonstore/users/logout"
 
 export const register = async(data) =>{
@@ -23,17 +23,14 @@ export const register = async(data) =>{
         body: JSON.stringify(body),
     })
     const result = await response.json();
-    console.log(result.code)
 
-    // if(result.code !== 200){
-    //     alert(result.message)
-    //     throw new Error(result.message);
-    // }
+    if(!result.accessToken){
+        alert(result.message)
+        throw new Error(result.message);
+    }
 
+    localStorage.setItem("accessToken", result.accessToken);
     
-    //console.log(result);
-    sessionStorage.setItem("accessToken", result.accessToken);
-
     return result;
 }
 
@@ -51,12 +48,12 @@ export const login = async(data) =>{
         body: JSON.stringify(body),
     })
     const result = await response.json();
-    console.log(result.accessToken);
+   // console.log(result)
 
-    // if(result.code !== 200){
-    //     alert(result.message)
-    //     throw new Error(result.message);
-    // }
+    if(!result.accessToken){
+        alert(result.message)
+        throw new Error(result.message);
+    }
 
 
     localStorage.setItem("accessToken", result.accessToken);
