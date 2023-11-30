@@ -11,10 +11,12 @@ import { ReadMore } from "./ReadMoreINfo";
 export function CategoryPage(){
     const [selectedBook, setSelectedBook] = useState(null);
     const [showInfo, setShowInfo] = useState(false);
+    const [comments, setComments] = useState([]);
 
-    const bookInfoClickHandler = (bookId) => {
+    const bookInfoClickHandler = (bookId, comments) => {
         setSelectedBook(bookId);
         setShowInfo(true);
+        setComments(comments)
     };
 
     const bookInfoCloseHandler = () => {
@@ -51,7 +53,9 @@ export function CategoryPage(){
                         imageUrl={book.imageUrl}
                         category={book.category}
                         onInfoClick={bookInfoClickHandler}
+                        comments={book.comments}
                     />
+            
             
         ); category = CapitalizeFirstLowercaseRest(book.category);})
 
@@ -64,6 +68,8 @@ export function CategoryPage(){
                     bookId={selectedBook}
                     infoClose={bookInfoCloseHandler}
                     show={showInfo}
+                    comments={comments}
+                    showInfo={showInfo}
                 />}
                 <>
                 <div className="container-fluid">

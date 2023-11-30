@@ -9,11 +9,12 @@ export function BooksItem({
     publicationYear,
     imageUrl,
     category,
-    onInfoClick
+    onInfoClick,
+    comments
 }) {
 
     const infoClickHandler = () => {
-        onInfoClick(bookId);
+        onInfoClick(bookId, comments);
     };
 
     return (
