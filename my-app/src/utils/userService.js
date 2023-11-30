@@ -1,13 +1,17 @@
 const baseUrlRegister = "http://localhost:3030/users/register";
 const loginUrl = "http://localhost:3030/users/login"
+const baseUrl = "http://localhost:3030/users/"
 const logoutUrl = "http://localhost:3030/jsonstore/users/logout"
+
+import * as bookService from "../utils/booksService";
 
 export const register = async(data) =>{
     const body = {
-        name: data.name,
+        username: data.name,
         email: data.email,
         password: data.password,
-        rPassword: data.rPassword
+        rPassword: data.rPassword,
+        userImage: data.userImage
     }
 
     if(body.password !== body.rPassword){
@@ -34,6 +38,16 @@ export const register = async(data) =>{
     return result;
 }
 
+export const getOne = async () => {
+    const response = await fetch(baseUrl+`me`,{
+        method: "GET",
+        headers: {
+            "X-Authorization": localStorage.getItem("accessToken")
+        }
+    })
+    return await response.json()
+}
+
 export const login = async(data) =>{
     const body = {
         email: data.email,
@@ -48,7 +62,7 @@ export const login = async(data) =>{
         body: JSON.stringify(body),
     })
     const result = await response.json();
-   // console.log(result)
+    console.log(result)
 
     if(!result.accessToken){
         alert(result.message)

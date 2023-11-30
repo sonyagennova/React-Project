@@ -18,6 +18,7 @@ export function RegisterPage(){
     await userService.register(data);
     document.getElementById("fullName").value = "";
     document.getElementById("email").value = "";
+    document.getElementById("userImage").value = "";
     document.getElementById("pass").value = "";
     document.getElementById("rPass").value = "";
 
@@ -42,6 +43,9 @@ export function RegisterPage(){
             </div>
             <div>
               <input type="text" placeholder="Email" name="email" id="email"/>
+            </div>
+            <div>
+              <input type="text" placeholder="ImageURL..." name="userImage" id="userImage"/>
             </div>
             <div>
               <input type="password" placeholder="Password" name="password" id="pass"/>
