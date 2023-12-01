@@ -27,7 +27,7 @@ export function BooksItem({
                     <div className="detail-box">
                         <h5>{title}</h5>
                         <h7>{author}</h7>
-                        <Link className="page-a"
+                        <Link className="page-a" to={`/category/${category}/${bookId}`}
                         onClick={infoClickHandler}>Read More</Link>
                     </div>
                 </div>

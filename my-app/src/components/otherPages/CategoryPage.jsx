@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import App from "../../App";
 import * as booksService from "../../utils/booksService";
 import { Footer } from "../homePageSections/Footer";
@@ -13,6 +14,11 @@ export function CategoryPage(){
     const [showInfo, setShowInfo] = useState(false);
     const [comments, setComments] = useState([]);
 
+    let categoryBooks = [];
+    let category = "";
+
+    const navigate = useNavigate();
+
     const bookInfoClickHandler = (bookId, comments) => {
         setSelectedBook(bookId);
         setShowInfo(true);
@@ -21,6 +27,7 @@ export function CategoryPage(){
 
     const bookInfoCloseHandler = () => {
         setShowInfo(false);
+        navigate(`/category/${category.toLowerCase()}`)
     }
 
     const [books, setBooks] = useState([]);
@@ -39,9 +46,6 @@ export function CategoryPage(){
                 categoryBook.push(book);
             } 
         });
-
-        let categoryBooks = [];
-        let category = "";
 
         categoryBook.forEach(book => {categoryBooks.push(
             <BooksItem
@@ -70,6 +74,7 @@ export function CategoryPage(){
                     show={showInfo}
                     comments={comments}
                     showInfo={showInfo}
+                    setShowInfo={setShowInfo}
                 />}
                 <>
                 <div className="container-fluid">
