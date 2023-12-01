@@ -35,12 +35,44 @@ export const getOne = async (bookId) => {
     return result;
 };
 
-export const setComments = async (data, bookId, user, image) => {
+export const deleteBook = async(bookId) => {
+    const response = await fetch(`${baseUrl}/${bookId}`, {
+        method: "DELETE"
+    })
+
+    return response
+}
+
+export const editBook = async (data, bookId) => {
+    const body = {
+        title: data.title,
+        author: data.author,
+        description: data.description,
+        publication_year: data.publication_year,
+        imageUrl: data.imageUrl
+    };
+
+    const response = await fetch(`${baseUrl}/${bookId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+    })
+
+    const result = await response.json();
+    //console.log(result);
+
+    return result;
+}
+
+export const setComments = async (data, bookId, user, image, ownerId) => {
     const body = {
         comments: data.comment,
         bookId: bookId,
         username: user,
-        userImage: image
+        userImage: image,
+        ownerId: ownerId
     }
 
     const response = await fetch(baseUrl+"/comments", {
