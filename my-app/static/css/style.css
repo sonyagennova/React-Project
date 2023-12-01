@@ -1051,98 +1051,22 @@ a:focus {
   background-image: url(../images/next.png);
 }
 
-.overlayBookInfo .details {
-  width: 45rem;
-  position: absolute;
-  max-height: 90vh;
-  margin: auto;
-  border-radius: 20px;
-  background-color: white;
-  color: #000000;
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
-  z-index: 30;
-  margin-top: 50px;
+
+.comment-row:hover {
+  background: rgba(0, 0, 0, 0.02);
+  cursor: pointer;
 }
 
-.overlayBookInfo .detail-container-book-info {
-  width: 100%;
-  height: 40vh;
+.comment-row {
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  padding: 15px;
 }
-
-.overlayBookInfo .headers {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  padding: 5px 0px;
-  border-bottom: 1px solid #ccc;
+.comment-text:hover{
+  visibility: hidden;
 }
-
-.overlayBookInfo .headers h2 {
-  margin-bottom: 0px;
-} 
-
-.overlayBookInfo .content {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-top: 20px;
+.comment-text:hover{
+  visibility: visible;
 }
-
-.overlayBookInfo .image-container-book-info {
-  margin-right: 20px;
-}
-
-.overlayBookInfo .image-container-book-info img {
-  border-radius: 50%;
-  width: 210px;
-  height: 210px;
-  object-fit: cover;
-  flex: 4;
-}
-
-.overlayBookInfo .content .user-details {
-  flex: 8;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 0px !important;
-}
-.overlayBookInfo .content .user-details p {
-  margin-bottom: 10px;
-}
-.overlayBookInfo .content .user-details p:last-of-type {
-  margin-bottom: 0px;
-}
-
-@media (min-width: 930px) {
-  .overlayBookInfo .details {
-    width: 45rem;
-    left: calc(50% - 20rem);
-    border-radius: 14px;
-  }
-}
-.overlayBookInfo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
-}
-
-/* .image-container-book-info {
-  margin-right: 20px;
-}
-
-.image-container-book-info img {
-  border-radius: 50%;
-  width: 210px;
-  height: 210px;
-  object-fit: cover;
-  flex: 4;
-} */
 
 .backdropBook {
   background-color: rgba(0, 0, 0, 0.75);
