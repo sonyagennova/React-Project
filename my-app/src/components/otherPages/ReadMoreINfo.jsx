@@ -3,13 +3,34 @@ import * as bookService from "../../utils/booksService"
 import * as userService from "../../utils/userService"
 import { Modal, Button, Form, Stack, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { Edit } from "./editPage";
 
-export function ReadMore({bookId, infoClose, show, comments, showInfo}){
+export function ReadMore({bookId, infoClose, show, setShowInfo}){
     const [book, setBook] = useState([])
     const [com, setCom] = useState([])
     const [user, setUser] = useState([])
+    const [owner, setOwner] = useState([])
     const [image, setImage] = useState([])
 
+    const[showEdit, setShowEdit] = useState(false);
+    const[hideEditButton, setHideEditButton] = useState(false);
+
+    const navigate = useNavigate();
+
+    const showEditPage = () => {
+      setShowEdit(true)
+      setHideEditButton(true);
+    }
+
+    const deleteBook = async (e) => {
+      e.preventDefault()
+
+      await bookService.deleteBook(bookId);
+
+      setShowInfo(false)
+      //navigate(`/categories`)
+      navigate(`/category/${String(book.category).toLowerCase()}`)
+    }
     let nextId = 0
 
     let addComment = []
@@ -26,17 +47,22 @@ export function ReadMore({bookId, infoClose, show, comments, showInfo}){
 
     useEffect(() => {
       userService.getOne()
+      .then(result => setOwner(result._id))
+    }, [])
+
+    useEffect(() => {
+      userService.getOne()
       .then(result => setImage(result.userImage))
     }, [])
 
-    console.log(image)
+    //console.log(image)
 
     useEffect(() => {
       bookService.getAllComments()
       .then(result => 
         result.forEach(comment => {
         if(comment.bookId === bookId){
-          addComment[nextId] = {comment: comment.comments, username: comment.username, image: comment.userImage};
+          addComment[nextId] = {comment: comment.comments, username: comment.username, image: comment.userImage, ownerId: comment.ownerId};
           setCom(addComment)
           nextId ++;
         }
@@ -47,19 +73,19 @@ export function ReadMore({bookId, infoClose, show, comments, showInfo}){
     
     const comment = async (e) => {
       e.preventDefault()
-      console.log(com)
+      //console.log(com)
       
       const data = Object.fromEntries(new FormData(e.target.form));
       //setComment(addComment)
       
+      await bookService.setComments(data, bookId, user, image, owner);
       await bookService.addComment(bookId, com);
-      await bookService.setComments(data, bookId, user, image);
       //console.log(com)
       
-      document.getElementById("comment").value = "";
+      document.getElementById("comment").value = ""; 
     }
     
-    console.log(book)
+    //console.log(book)
     return(
         <>
         <Modal show={show} onHide={infoClose} size="lg">
@@ -76,9 +102,13 @@ export function ReadMore({bookId, infoClose, show, comments, showInfo}){
                     <img style={{marginRight: "50px", width:"400px"}} src={book.imageUrl} alt={book.title}/>
                 </div>
                 <div>
+                    {showEdit? <Edit key={bookId} bookId={bookId} book={book} setShowEdit={setShowEdit} show={showEdit} hideEditButton={setHideEditButton}/>:
+                    <>
                     <h1>{book.title}</h1>
                     <h3>{book.author}</h3>
                     <p>{book.description}</p>
+                    </>
+                  }
             </div>
             </div>
           <Modal.Body>
@@ -92,7 +122,6 @@ export function ReadMore({bookId, infoClose, show, comments, showInfo}){
       </Button>
     </Form>
     
-    
     {
       com.map(comment => {
         return(
@@ -104,6 +133,14 @@ export function ReadMore({bookId, infoClose, show, comments, showInfo}){
                    
                 </div>
                 <p className="m-b-5 m-t-10">{comment.comment}</p>
+                <Modal.Footer>
+                  {comment.ownerId == owner &&
+                  <>
+                    <Button variant="warning" >Edit</Button>
+                    <Button variant="danger">Delete</Button>
+                  </>
+                  }
+                </Modal.Footer>
             </div>
           </div>
         )
@@ -117,8 +154,8 @@ export function ReadMore({bookId, infoClose, show, comments, showInfo}){
         <Modal.Footer>
           {book.ownerId == localStorage.getItem("accessToken")&&
             <>
-              <Button variant="warning">Edit</Button>
-              <Button variant="danger">Delete</Button>
+              <Button variant="warning" onClick={showEditPage} hidden={hideEditButton}>Edit</Button>
+              <Button variant="danger" onClick={deleteBook}>Delete</Button>
             </>
           }
           <Button variant="secondary" onClick={infoClose}>
