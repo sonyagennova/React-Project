@@ -15,6 +15,7 @@ import { CreatePage } from "./components/otherPages/createPage"
 import { ReadMore } from "./components/otherPages/ReadMoreINfo"
 import { Route, Routes } from "react-router-dom"
 import { HomePage } from "./components/homePageSections/homePage"
+import { useContext, useState } from "react"
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route path="/" element={<HomePage/>}/>
         <Route path="/categories" element={<CategoriesPage/>}/>
         <Route path="/category/:category" element={<CategoryPage/>}/>
+        <Route path="/category/:category/:bookId" element={<CategoryPage />}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<RegisterPage/>}/>
         <Route path="/add" element={<CreatePage/>}/>
