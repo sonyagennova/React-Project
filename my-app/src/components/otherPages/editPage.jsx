@@ -1,20 +1,29 @@
 import { useState } from "react";
 import {InputGroup, Form, Modal, Button, ModalDialog} from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import * as bookService from "../../utils/booksService"
 import { CapitalizeFirstLowercaseRest } from "../partial/FirstLetterCapitel";
 
-export function Edit({book, bookId, setShowEdit, show, hideEditButton}){
+export function Edit({book, bookId, setBook, setShowInfo, category, setShowEdit, show, hideEditButton}){
 
     //const [showBook, setShowBook] = useState(false)
+    const navigate = useNavigate();
 
     const editBook = async(e) => {
         e.preventDefault();
         const data = Object.fromEntries(new FormData(e.target.form));
         //console.log(data)
-        await bookService.editBook(data, bookId);
+        await bookService.editBook(data, bookId)
+            .then(result => {
+                setBook(result)
+            });
         show = false;
         setShowEdit(false)
         hideEditButton(false)
+        //setShowInfo(false)
+        setBook((state) => {
+            return state
+        })
     }
 
     const onClose = () => {
