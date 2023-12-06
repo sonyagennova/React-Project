@@ -4,13 +4,14 @@ import { Nav } from "../partial/Navbar";
 import { CapitalizeFirstLowercaseRest } from "../partial/FirstLetterCapitel";
 import { Link } from "react-router-dom";
 import { Fragment } from "react";
+import './CategoriesPage.scss'
 
 export function CategoriesPage(){
     return(
         <>
         <section className="animal_section1">
         <div className="container-fluid">
-            <Nav />
+            <Nav/>
         </div>
         <h1>All book categories</h1>
         <p className="p">Choose one to start exploring the world of books!</p>

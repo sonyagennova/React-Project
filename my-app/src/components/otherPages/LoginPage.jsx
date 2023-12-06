@@ -3,6 +3,7 @@ import {Info} from "../homePageSections/InfoSection";
 import {NavLogin} from "../partial/NavbarLogin";
 import * as userService from "../../utils/userService"
 import { useNavigate } from "react-router-dom";
+import './LoginPage.scss'
 
 export function Login() {
     const navigate = useNavigate();

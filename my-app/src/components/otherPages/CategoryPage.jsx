@@ -8,6 +8,7 @@ import { BooksItem } from "../partial/BooksItem";
 import { CapitalizeFirstLowercaseRest } from "../partial/FirstLetterCapitel";
 import { Nav } from "../partial/Navbar";
 import { ReadMore } from "./ReadMoreINfo";
+import './CategoryPage.scss'
 
 export function CategoryPage(){
     const [selectedBook, setSelectedBook] = useState([]);
@@ -30,7 +31,6 @@ export function CategoryPage(){
     useEffect(() => {
         booksService.getAll()
         .then(result => {
-            console.log(result)
             setBooks(result)
         })
         .catch(err => console.log(err))

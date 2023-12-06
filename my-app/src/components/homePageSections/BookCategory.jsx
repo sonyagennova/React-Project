@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import './BookCategory.scss'
 
 export function BookCategory(){
     return(

@@ -1,6 +1,20 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { top } from "../../utils/topBooksService";
+import './FamousBooks.scss'
 
 export function FamousBooks(props){
+    const [books, setBooks] = useState([]);
+
+    useEffect(() => {
+      top()
+      .then(result => {
+        let output = result.filter()
+        setBooks(result.filter())
+      })
+      .catch(error => error)
+    })
+
     return(
         <section className="food_section layout_padding">
     <div className="container">
@@ -22,7 +36,7 @@ export function FamousBooks(props){
               <p>{props.books[0].name}</p>
               <p>{props.books[0].year}</p>
             </h3>
-            <Link href="">Read Now</Link>
+            <Link to="">Read More</Link>
           </div>
         </div>
         <div className="box">
@@ -34,7 +48,7 @@ export function FamousBooks(props){
               <p>{props.books[1].name}</p>
               <p>{props.books[1].year}</p>
             </h3>
-            <Link href="">Read Now</Link>
+            <Link to="">Read More</Link>
           </div>
         </div>
         <div className="box">
@@ -46,7 +60,7 @@ export function FamousBooks(props){
               <p>{props.books[2].name}</p>
               <p>{props.books[2].year}</p>
             </h3>
-            <Link href="">Read Now</Link>
+            <Link  >Read More</Link>
           </div>
         </div>
       </div>

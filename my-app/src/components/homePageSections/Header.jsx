@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { logout } from "../../utils/logout";
 import * as userService from "../../utils/userService"
 import { Nav } from "../partial/Navbar";
+import './Header.scss'
 
 export function Header(){
 

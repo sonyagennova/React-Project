@@ -3,6 +3,7 @@ import { Info } from "../homePageSections/InfoSection";
 import { NavLogin } from "../partial/NavbarLogin";
 import * as bookService from "../../utils/booksService"
 import { useNavigate } from "react-router-dom";
+import './createPage.scss'
 //import * as bookCreateHandler from "../otherPages/CategoryPage";
 
 export function CreatePage(){

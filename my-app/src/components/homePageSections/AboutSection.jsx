@@ -1,3 +1,5 @@
+import './AboutSection.scss'
+
 export function About(){
     return(
         <section className="about_section layout_padding">
