@@ -2,7 +2,11 @@ import { Link } from "react-router-dom";
 import { logout } from "../../utils/logout";
 import * as userService from "../../utils/userService"
 
-export function Nav({isRegistered}){
+export function Nav(){
+  let username = '';
+  if(localStorage.getItem("auth")){
+    username = localStorage.getItem("auth").split(",")[0];
+  }
     return(
         <nav className="navbar navbar-expand-lg custom_nav-container">
           <Link className="navbar-brand" to="/">
@@ -28,6 +32,7 @@ export function Nav({isRegistered}){
             </div>
             <div id="myNav" className="overlay">
               <div className="overlay-content">
+              {localStorage.getItem("auth") && <h1 style={{color: "white"}}>Hello, {username}</h1>}<br></br>
               <Link to="/">Home</Link>
                 <Link to="/categories">Categories</Link>
                 {localStorage.getItem("accessToken")?
