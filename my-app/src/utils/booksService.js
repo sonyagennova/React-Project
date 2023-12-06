@@ -18,6 +18,24 @@ export const getAllComments = async () => {
     return data;
 };
 
+export const editComment = async (data, commentId) => {
+    const body = {
+        comments: data.comments
+    }
+    const response = await fetch(baseUrl+`/comments/${commentId}`,{
+        method:"PATCH",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body),
+    })
+
+    const result = await response.json()
+    console.log(result)
+    return result
+
+}
+
 export const getByCategory = async (category) => {
     const response = await fetch(`${baseUrl}`)
     const result = await response.json();
@@ -87,6 +105,13 @@ export const setComments = async (data, bookId, user, image, ownerId) => {
     return result
 }
 
+export const getOneComment = async(commentId) => {
+    const response = await fetch(`${baseUrl}/comments/${commentId}`);
+    const result = await response.json();
+
+    return result;
+}
+
 export const addComment = async (_id, comments) => {
 
     //setComments.push(data.comment)
@@ -105,6 +130,14 @@ export const addComment = async (_id, comments) => {
 
     const result = response.json()
     return result
+}
+
+export const deleteComment = async(commentId) => {
+    const response = await fetch(`${baseUrl}/comments/${commentId}`, {
+        method: "DELETE"
+    })
+
+    return response
 }
 
 export const create = async (data, accessToken) => {
