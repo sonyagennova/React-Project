@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { unstable_useViewTransitionState, useNavigate } from "react-router-dom";
 import App from "../../App";
 import * as booksService from "../../utils/booksService";
 import { Footer } from "../homePageSections/Footer";
@@ -10,7 +10,7 @@ import { Nav } from "../partial/Navbar";
 import { ReadMore } from "./ReadMoreINfo";
 
 export function CategoryPage(){
-    const [selectedBook, setSelectedBook] = useState(null);
+    const [selectedBook, setSelectedBook] = useState([]);
     const [showInfo, setShowInfo] = useState(false);
     const [comments, setComments] = useState([]);
 
@@ -25,18 +25,24 @@ export function CategoryPage(){
         setComments(comments)
     };
 
-    const bookInfoCloseHandler = () => {
-        setShowInfo(false);
-        navigate(`/category/${category.toLowerCase()}`)
-    }
-
+    
     const [books, setBooks] = useState([]);
     useEffect(() => {
         booksService.getAll()
-            .then(result => setBooks(result))
-            .catch(err => console.log(err))
+        .then(result => {
+            console.log(result)
+            setBooks(result)
+        })
+        .catch(err => console.log(err))
     }, [])
-
+    
+    const bookInfoCloseHandler = () => {
+        setShowInfo(false);
+        booksService.getAll()
+        .then(result => setBooks(result))
+        .catch(err => console.log(err));
+        navigate(`/category/${category.toLowerCase()}`, {state: books})
+    }
     let ifBook = false;
     let categoryBook = [];
 
