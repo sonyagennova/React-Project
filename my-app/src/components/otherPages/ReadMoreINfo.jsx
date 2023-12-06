@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as bookService from "../../utils/booksService"
 import * as userService from "../../utils/userService"
+import * as commentService from "../../utils/commentService"
 import { Modal, Button, Form, Stack, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Edit } from "./editPage";
@@ -14,7 +15,11 @@ export function ReadMore({bookId, infoClose, show, setShowInfo}){
     const [owner, setOwner] = useState([])
     const [image, setImage] = useState([])
 
+    const [commentId, setCommentId] = useState('');
+
     const[addCommentClicked, setAddCommentClicked] = useState([]);
+    const [hideEditCommentButton, setHideEditCommentButton]= useState(false);
+    const [currentComment, setCurrentComment] = useState([]);
 
     const category = book.category;
 
@@ -28,41 +33,31 @@ export function ReadMore({bookId, infoClose, show, setShowInfo}){
       setHideEditButton(true);
     }
 
-    // useEffect(() => {
-    //   com.forEach(comment => {
-    //     //console.log(comment._id)
-    //     if(comment._id === commentId){
-    //       //console.log(comment)
-          
-    //       setCurrentComment(comment.comment)
-    //       setCurrentComment((state) => {
-    //         return state
-    //       })
-    //     }
-    //   })
-    // }, [iscurrentComment])
+    useEffect(() => {
+      const selectedComment = com.find(comment => comment._id === commentId);
+          if (selectedComment) {
+            setCurrentComment(selectedComment.comment);
+          }
+    }, [commentId, com])
 
-    // const showEditCommentPage = (e) => {
-    //   const data = e.target.parentNode.parentNode.parentNode.parentNode
-    //   console.log(data)
+    const showEditCommentPage = (e) => {
+      const data = e.target.parentNode.parentNode.parentNode.parentNode;
+        //console.log(data);
 
-    //   setCommentId(data.id)
-    //   setCommentId((state) => {
-    //     return state
-    //   })
-    //   setIsCurrentComment(true)
-    //   setShowEditComent(true);
-    //   setHideEditCommentButton(true);
-    //   //console.log(currentComment)
-    // }
+        setCommentId(data.id);
+        setCommentId((state) => {
+          return state;
+        });
+        setShowEditComent(true);
+        setHideEditCommentButton(true);
+      //console.log(currentComment)
+    }
 
 
     const deleteBook = async (e) => {
       e.preventDefault()
 
       await bookService.deleteBook(bookId);
-      
-
       setShowInfo(false)
       bookService.getAll()
         .then(result => setBook(result))
@@ -72,17 +67,25 @@ export function ReadMore({bookId, infoClose, show, setShowInfo}){
     }
 
 
-    // const deleteComment = async (e) => {
-    //   e.preventDefault()
-    //   const data = e.target.parentNode.parentNode.parentNode.parentNode
-    //   console.log(data.id)
+  const deleteComment = async (e) => {
+    e.preventDefault()
+    const data = e.target.parentNode.parentNode.parentNode.parentNode;
 
-    //   setCommentId(String(data.id))
-    //   //console.log(commentId)
+    try {
+      const commentIdToDelete = String(data.id);
+      setCommentId(commentIdToDelete);
 
-    //   await bookService.deleteComment(commentId)
+      // Delete the comment from the server
+      await commentService.deleteComment(commentIdToDelete);
+
+      // Update the UI by removing the deleted comment from the state
+      setCom((prevState) => prevState.filter(comment => comment._id !== commentIdToDelete));
+    } catch (error) {
+      console.error("Error deleting comment:", error);
+      // Handle error (e.g., show an error message to the user)
+    }
       
-    // }
+  }
 
     let nextId = 0
 
@@ -113,7 +116,7 @@ export function ReadMore({bookId, infoClose, show, setShowInfo}){
     //console.log(image)
 
     useEffect(() => {
-      bookService.getAllComments()
+      commentService.getAllComments()
       .then(result => 
         result.forEach(comment => {
         if(comment.bookId === bookId){
@@ -134,17 +137,9 @@ export function ReadMore({bookId, infoClose, show, setShowInfo}){
       //console.log(com)
       
       const data = Object.fromEntries(new FormData(e.target.form));
-      //setComment(addComment)
       
-      // setAddCommentClicked(data)
-      // setAddCommentClicked((state) => {
-      //   return state
-      // })
-      
-      //console.log(addCommentClicked)
-      
-      await bookService.setComments(data, bookId, user, image, owner);
-      await bookService.addComment(bookId, com);
+      await commentService.setComments(data, bookId, user, image, owner);
+      await commentService.addComment(bookId, com);
       setCom(prevState => [...prevState, addComment]);
    
       // Set addCommentClicked to true after adding a comment
@@ -204,15 +199,15 @@ export function ReadMore({bookId, infoClose, show, setShowInfo}){
                    
                 </div>
                 <p className="m-b-5 m-t-10">{comment.comment}</p>
-                {showEditComment && <EditComment key={comment._id} com={com} nextId={nextId} addComment={addComment} setCom={setCom} show={showEditComment} commentId={commentId} comment={currentComment} setShowEditComment={setShowEditComent} hideButton={setHideEditCommentButton}/>}
-                {/* <Modal.Footer>
+                {showEditComment && <EditComment key={comment._id} com={com} setCom={setCom} show={showEditComment} commentId={commentId} comment={currentComment} setShowEditComment={setShowEditComent} hideButton={setHideEditCommentButton}/>}
+                <Modal.Footer>
                   {comment.ownerId == owner &&
                   <>
                     <Button variant="warning" onClick={showEditCommentPage} hidden={hideEditCommentButton}>Edit</Button>
-                    <Button variant="danger" onClick={deleteComment}>Delete</Button>
+                    <Button variant="danger"onClick={deleteComment} >Delete</Button>
                   </>
                   }
-                </Modal.Footer> */}
+                </Modal.Footer>
             </div>
           </div>
           </Form>
