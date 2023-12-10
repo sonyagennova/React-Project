@@ -5,9 +5,10 @@ export function EditComment({show, com, setCom, comment, commentId, setShowEditC
     const editComment = async(e) => {
         e.preventDefault();
         const data = Object.fromEntries(new FormData(e.target.form));
+        const accessToken = localStorage.getItem("accessToken")
 
         try {
-            const result = await commentService.editComment(data, commentId);
+            const result = await commentService.editComment(data, commentId, accessToken);
             const editedComment = { _id: result._id, comment: result.comments, username: result.username, image: result.userImage, ownerId: result.ownerId };
       
             // Find the index of the comment in the array
