@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { Edit } from "./editPage";
 import { EditComment } from "./editComment";
 
-export function ReadMore({bookId, infoClose, show, setShowInfo}){
-
+export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks}){
+  const accessToken = localStorage.getItem("accessToken")
     const [book, setBook] = useState([])
     const [com, setCom] = useState([])
     const [user, setUser] = useState([])
@@ -19,7 +19,7 @@ export function ReadMore({bookId, infoClose, show, setShowInfo}){
 
     const[addCommentClicked, setAddCommentClicked] = useState([]);
     const [hideEditCommentButton, setHideEditCommentButton]= useState(false);
-    const [currentComment, setCurrentComment] = useState([]);
+    const [currentComment, setCurrentComment] = useState('');
 
     const category = book.category;
 
@@ -33,34 +33,36 @@ export function ReadMore({bookId, infoClose, show, setShowInfo}){
       setHideEditButton(true);
     }
 
-    useEffect(() => {
-      const selectedComment = com.find(comment => comment._id === commentId);
-          if (selectedComment) {
-            setCurrentComment(selectedComment.comment);
-          }
-    }, [commentId, com])
+    // useEffect(() => {
+    //   const selectedComment = com.find(comment => comment._id === commentId);
+    //       if (selectedComment) {
+    //         setCurrentComment(selectedComment.comment);
+    //       }
+    // }, [commentId, com])
 
     const showEditCommentPage = (e) => {
-      const data = e.target.parentNode.parentNode.parentNode.parentNode;
-        //console.log(data);
-
-        setCommentId(data.id);
-        setCommentId((state) => {
-          return state;
-        });
-        setShowEditComent(true);
-        setHideEditCommentButton(true);
-      //console.log(currentComment)
-    }
+      const clickedCommentId = e.currentTarget.getAttribute('data-comment-id');
+      const selectedComment = com.find(comment => comment._id === clickedCommentId);
+    
+      if (selectedComment) {
+        setCurrentComment(selectedComment.comment);
+      }
+    
+      setCommentId(clickedCommentId);
+      setShowEditComent(true);
+      setHideEditCommentButton(true);
+    };
 
 
     const deleteBook = async (e) => {
       e.preventDefault()
 
-      await bookService.deleteBook(bookId);
+      await bookService.deleteBook(bookId, accessToken);
       setShowInfo(false)
       bookService.getAll()
-        .then(result => setBook(result))
+        .then(result => {
+          setBooks(result)
+        })
         .catch(err => console.log(err));
       //navigate(`/categories`)
       navigate(`/category/${String(book.category).toLowerCase()}`)
@@ -76,7 +78,7 @@ export function ReadMore({bookId, infoClose, show, setShowInfo}){
       setCommentId(commentIdToDelete);
 
       // Delete the comment from the server
-      await commentService.deleteComment(commentIdToDelete);
+      await commentService.deleteComment(commentIdToDelete, accessToken);
 
       // Update the UI by removing the deleted comment from the state
       setCom((prevState) => prevState.filter(comment => comment._id !== commentIdToDelete));
@@ -138,8 +140,8 @@ export function ReadMore({bookId, infoClose, show, setShowInfo}){
       
       const data = Object.fromEntries(new FormData(e.target.form));
       
-      await commentService.setComments(data, bookId, user, image, owner);
-      await commentService.addComment(bookId, com);
+      await commentService.setComments(data, bookId, user, image, owner, accessToken);
+      await commentService.addComment(bookId, com, accessToken);
       setCom(prevState => [...prevState, addComment]);
    
       // Set addCommentClicked to true after adding a comment
@@ -190,7 +192,7 @@ export function ReadMore({bookId, infoClose, show, setShowInfo}){
 
       com.map(comment => {
         return(
-          <Form id={comment._id}>
+          <Form key={comment._id} id={`commentForm_${comment._id}`}>
           <div className="d-flex flex-row comment-row">
             <div className="p-2"><span className="round"><img src={comment.image} alt="user" width="50"/></span></div>
             <div className="comment-text w-100">
@@ -203,7 +205,7 @@ export function ReadMore({bookId, infoClose, show, setShowInfo}){
                 <Modal.Footer>
                   {comment.ownerId == owner &&
                   <>
-                    <Button variant="warning" onClick={showEditCommentPage} hidden={hideEditCommentButton}>Edit</Button>
+                    <Button variant="warning" data-comment-id={comment._id} onClick={showEditCommentPage} hidden={hideEditCommentButton}>Edit</Button>
                     <Button variant="danger"onClick={deleteComment} >Delete</Button>
                   </>
                   }
