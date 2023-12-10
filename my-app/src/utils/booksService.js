@@ -1,4 +1,5 @@
-const baseUrl = 'http://localhost:3030/jsonstore/books';
+const baseUrl = 'http://localhost:3030/data/books';
+const token = localStorage.getItem("accessToken");
 
 export const getAll = async () => {
     const response = await fetch(baseUrl);
@@ -8,33 +9,6 @@ export const getAll = async () => {
 
     return data;
 };
-
-export const getAllComments = async () => {
-    const response = await fetch(baseUrl+"/comments");
-    const result = await response.json();
-
-    const data = Object.values(result);
-
-    return data;
-};
-
-export const editComment = async (data, commentId) => {
-    const body = {
-        comments: data.comments
-    }
-    const response = await fetch(baseUrl+`/comments/${commentId}`,{
-        method:"PATCH",
-        headers:{
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(body),
-    })
-
-    const result = await response.json()
-    console.log(result)
-    return result
-
-}
 
 export const getByCategory = async (category) => {
     const response = await fetch(`${baseUrl}`)
@@ -53,15 +27,18 @@ export const getOne = async (bookId) => {
     return result;
 };
 
-export const deleteBook = async(bookId) => {
+export const deleteBook = async(bookId, accessToken) => {
     const response = await fetch(`${baseUrl}/${bookId}`, {
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+            'X-Authorization': accessToken
+        },
     })
 
     return response
 }
 
-export const editBook = async (data, bookId) => {
+export const editBook = async (data, bookId, accessToken) => {
     const body = {
         title: data.title,
         author: data.author,
@@ -74,6 +51,7 @@ export const editBook = async (data, bookId) => {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
+            'X-Authorization': accessToken
         },
         body: JSON.stringify(body),
     })
@@ -82,62 +60,6 @@ export const editBook = async (data, bookId) => {
     //console.log(result);
 
     return result;
-}
-
-export const setComments = async (data, bookId, user, image, ownerId) => {
-    const body = {
-        comments: data.comment,
-        bookId: bookId,
-        username: user,
-        userImage: image,
-        ownerId: ownerId
-    }
-
-    const response = await fetch(baseUrl+"/comments", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(body)
-    })
-
-    const result = await response.json()
-    return result
-}
-
-export const getOneComment = async(commentId) => {
-    const response = await fetch(`${baseUrl}/comments/${commentId}`);
-    const result = await response.json();
-
-    return result;
-}
-
-export const addComment = async (_id, comments) => {
-
-    //setComments.push(data.comment)
-
-    const body = {
-        comments: comments
-    };
-
-    const response = await fetch(baseUrl+`/${_id}`, {
-        method: "PATCH",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(body)
-    })
-
-    const result = response.json()
-    return result
-}
-
-export const deleteComment = async(commentId) => {
-    const response = await fetch(`${baseUrl}/comments/${commentId}`, {
-        method: "DELETE"
-    })
-
-    return response
 }
 
 export const create = async (data, accessToken) => {
@@ -156,6 +78,7 @@ export const create = async (data, accessToken) => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'X-Authorization': accessToken
         },
         body: JSON.stringify(body),
     })

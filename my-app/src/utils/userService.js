@@ -1,9 +1,8 @@
 const baseUrlRegister = "http://localhost:3030/users/register";
 const loginUrl = "http://localhost:3030/users/login"
 const baseUrl = "http://localhost:3030/users/"
-const logoutUrl = "http://localhost:3030/jsonstore/users/logout"
-
-import * as bookService from "../utils/booksService";
+const logoutUrl = "http://localhost:3030/data/users/logout"
+const token = localStorage.getItem("accessToken");
 
 export const register = async(data) =>{
     const body = {
@@ -34,6 +33,7 @@ export const register = async(data) =>{
     }
 
     localStorage.setItem("accessToken", result.accessToken);
+    localStorage.setItem("auth", [result.username, result.email])
     
     return result;
 }
@@ -69,8 +69,10 @@ export const login = async(data) =>{
         throw new Error(result.message);
     }
 
-
+    console.log(result.accessToken)
+    console.log(result._id)
     localStorage.setItem("accessToken", result.accessToken);
+    localStorage.setItem("auth", [result.username, result.email])
 
     return result;
 }
@@ -82,4 +84,5 @@ export const logout = async() =>{
     })
 
     localStorage.removeItem("accessToken")
+    localStorage.removeItem("auth")
 }
