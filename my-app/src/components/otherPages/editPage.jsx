@@ -13,8 +13,10 @@ export function Edit({book, bookId, setBook, setShowInfo, category, setShowEdit,
         e.preventDefault();
         const data = Object.fromEntries(new FormData(e.target.form));
         //console.log(data)
-        await bookService.editBook(data, bookId)
+        const accessToken = localStorage.getItem("accessToken")
+        await bookService.editBook(data, bookId, accessToken)
             .then(result => {
+              console.log(result)
                 setBook(result)
             });
         show = false;
