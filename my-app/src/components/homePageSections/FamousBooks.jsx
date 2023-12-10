@@ -1,70 +1,73 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { top } from "../../utils/topBooksService";
+import * as latestBooksService from "../../utils/topBooksService.js";
+import * as booksService from "../../utils/booksService";
 import './FamousBooks.scss'
+import { ReadMore } from "../otherPages/ReadMoreINfo.jsx";
 
-export function FamousBooks(props){
-    const [books, setBooks] = useState([]);
+export function FamousBooks() {
+  const [books, setBooks] = useState([]);
+  const [showInfo, setShowInfo] = useState(false);
+  const [selectedBook, setSelectedBook] = useState(null);
 
-    useEffect(() => {
-      top()
+  useEffect(() => {
+    latestBooksService.top()
       .then(result => {
-        let output = result.filter()
-        setBooks(result.filter())
+        setBooks(result)
       })
-      .catch(error => error)
-    })
+      .catch(error => console.error(error))
+  }, [])
 
-    return(
-        <section className="food_section layout_padding">
-    <div className="container">
-      <div className="heading_container">
-        <img src="./static/images/storytelling (1).png" alt="" />
-        <h2>Top 3 Books</h2>
-        <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a
-        </p>
-      </div>
-      <div className="food_container">
-        <div className="box">
-          <div className="img-box">
-            <img src="./static/images/africa.png" alt="" />
-          </div>
-          <div className="detail-box">
-            <h3>
-              <p>{props.books[0].name}</p>
-              <p>{props.books[0].year}</p>
-            </h3>
-            <Link to="">Read More</Link>
-          </div>
+  const openInfo = (book) => {
+    setSelectedBook(book);
+    setShowInfo(true);
+  }
+
+  const bookInfoCloseHandler = () => {
+    setShowInfo(false);
+    setSelectedBook(null);
+  }
+
+  return (
+    <section className="food_section layout_padding">
+      <div className="container">
+        <div className="heading_container">
+          <img src="./static/images/storytelling (1).png" alt="" />
+          <h2>Latest 3 Books</h2>
+          <p>
+            It is a long-established fact that a reader will be distracted by the
+            readable content of a
+          </p>
         </div>
-        <div className="box">
-          <div className="img-box">
-            <img src="./static/images/theBee.png" alt="" />
-          </div>
-          <div className="detail-box">
-            <h3>
-              <p>{props.books[1].name}</p>
-              <p>{props.books[1].year}</p>
-            </h3>
-            <Link to="">Read More</Link>
-          </div>
-        </div>
-        <div className="box">
-          <div className="img-box">
-            <img src="./static/images/ecologyBook.png" alt="" />
-          </div>
-          <div className="detail-box">
-            <h3>
-              <p>{props.books[2].name}</p>
-              <p>{props.books[2].year}</p>
-            </h3>
-            <Link  >Read More</Link>
-          </div>
+        <div className="food_container">
+          {books.length <= 3 && (
+            <>
+              {books.slice(0, 3).map(book => (
+                <div className="box" key={book._id}>
+                  <div className="img-box">
+                    <img src={book.imageUrl} alt="" />
+                  </div>
+                  <div className="detail-box">
+                    <h3>
+                      <p>{book.title}</p>
+                      <h6>{book.author}</h6>
+                    </h3>
+                    <Link onClick={() => openInfo(book)}>Read More</Link>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
         </div>
       </div>
-    </div>
-  </section>
-    )
+      {selectedBook && (
+        <ReadMore
+          bookId={selectedBook._id}
+          infoClose={bookInfoCloseHandler}
+          show={showInfo}
+          setShowInfo={setShowInfo}
+        />
+      )}
+    </section>
+  );
 }
