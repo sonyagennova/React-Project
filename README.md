@@ -2,7 +2,7 @@
 
 ## A book rating app built with React, Node.js, Express.js, MongoDB and Mongoose, including all CRUD operations
 
-* The app gives users an opportunity to register as a merchant and add books to a certain category. They can post as many books as they wish, setting a title, author, published year, cover image and category.
+* The app gives users an opportunity to register and add books to a certain category. They can post as many books as they wish, setting a title, author, published year, cover image and category.
 * The project deploys what has been included in the SoftUni React Course:
     * React components
     * React router
