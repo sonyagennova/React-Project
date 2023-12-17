@@ -7,13 +7,15 @@ import { useNavigate } from "react-router-dom";
 import { Edit } from "./editPage";
 import { EditComment } from "./editComment";
 
-export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks}){
+export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userIds}){
   const accessToken = localStorage.getItem("accessToken")
     const [book, setBook] = useState([])
     const [com, setCom] = useState([])
     const [user, setUser] = useState([])
     const [owner, setOwner] = useState([])
     const [image, setImage] = useState([])
+
+    // let ownerId = '';
 
     const [commentId, setCommentId] = useState('');
 
@@ -27,6 +29,12 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks}){
     const[showEditComment, setShowEditComent] = useState(false);
     const[hideEditButton, setHideEditButton] = useState(false);
     const navigate = useNavigate();
+
+    // userIds.forEach(user => {
+    //   if(user === localStorage.getItem("auth").split(",")[2]){
+    //     ownerId = user;
+    //   }
+    // })
 
     const showEditPage = () => {
       setShowEdit(true)
@@ -69,25 +77,24 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks}){
     }
 
 
-  const deleteComment = async (e) => {
-    e.preventDefault()
-    const data = e.target.parentNode.parentNode.parentNode.parentNode;
-
-    try {
-      const commentIdToDelete = String(data.id);
-      setCommentId(commentIdToDelete);
-
-      // Delete the comment from the server
-      await commentService.deleteComment(commentIdToDelete, accessToken);
-
-      // Update the UI by removing the deleted comment from the state
-      setCom((prevState) => prevState.filter(comment => comment._id !== commentIdToDelete));
-    } catch (error) {
-      console.error("Error deleting comment:", error);
-      // Handle error (e.g., show an error message to the user)
+    const deleteComment = async (e) => {
+      e.preventDefault();
+      const commentIdToDelete = e.currentTarget.getAttribute('data-comment-id');
+  
+      try {
+        setCommentId(commentIdToDelete);
+  
+        // Delete the comment from the server
+        await commentService.deleteComment(commentIdToDelete, accessToken);
+  
+        // Update the UI by removing the deleted comment from the state
+        setCom((prevState) => prevState.filter(comment => comment._id !== commentIdToDelete));
+      } catch (error) {
+        console.error("Error deleting comment:", error);
+        // Handle error (e.g., show an error message to the user)
+      }
+        
     }
-      
-  }
 
     let nextId = 0
 
@@ -137,18 +144,23 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks}){
     const comment = async (e) => {
       e.preventDefault()
       //console.log(com)
-      
-      const data = Object.fromEntries(new FormData(e.target.form));
-      
-      await commentService.setComments(data, bookId, user, image, owner, accessToken);
-      await commentService.addComment(bookId, com, accessToken);
-      setCom(prevState => [...prevState, addComment]);
-   
-      // Set addCommentClicked to true after adding a comment
-      setAddCommentClicked(true);
-      //console.log(com)
-      
+
+      if(!localStorage.getItem("auth")){
+        alert("You must login/register first to be able to add a comment!")
+      } else {
+        const data = Object.fromEntries(new FormData(e.target.form));
+        
+        await commentService.setComments(data, bookId, user, image, owner, accessToken);
+        await commentService.addComment(bookId, com, accessToken);
+        setCom(prevState => [...prevState, addComment]);
+     
+        // Set addCommentClicked to true after adding a comment
+        setAddCommentClicked(true);
+        //console.log(com)
+        
+      }
       document.getElementById("comment").value = ""; 
+      
     }
     
     //console.log(book)
@@ -173,6 +185,7 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks}){
                     <h1>{book.title}</h1>
                     <h3>{book.author}</h3>
                     <p>{book.description}</p>
+                    {/* {owner == ownerId && <h6 style={{color: "tomato"}}>Creator: {localStorage.getItem("auth").split(",")[0]}</h6>} */}
                     </>
                   }
             </div>
@@ -206,7 +219,7 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks}){
                   {comment.ownerId == owner &&
                   <>
                     <Button variant="warning" data-comment-id={comment._id} onClick={showEditCommentPage} hidden={hideEditCommentButton}>Edit</Button>
-                    <Button variant="danger"onClick={deleteComment} >Delete</Button>
+                    <Button variant="danger" data-comment-id={comment._id} onClick={deleteComment} >Delete</Button>
                   </>
                   }
                 </Modal.Footer>
@@ -222,11 +235,13 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks}){
       </Modal.Body>
         </Modal.Body>
         <Modal.Footer>
-          {book.ownerId == localStorage.getItem("accessToken")&&
+          {localStorage.getItem("auth") &&
+            book.ownerId == localStorage.getItem("auth").split(",")[2]?
             <>
               <Button variant="warning" onClick={showEditPage} hidden={hideEditButton}>Edit</Button>
               <Button variant="danger" onClick={deleteBook}>Delete</Button>
-            </>
+            </>:
+            <></>
           }
           <Button variant="secondary" onClick={infoClose}>
             Close
