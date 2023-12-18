@@ -49,11 +49,8 @@ export function Header(){
                       sed do eiusmod tempor incididunt
                     </p>
                     <div className="btn-box">
-                      <Link to="" className="btn-1">
-                        Read More
-                      </Link>
-                      <Link to="" className="btn-2">
-                        Contact Us
+                      <Link to="/categories" className="btn-1">
+                        Categories
                       </Link>
                     </div>
                   </div>
@@ -82,11 +79,8 @@ export function Header(){
                       sed do eiusmod tempor incididunt
                     </p>
                     <div className="btn-box">
-                      <Link to="" className="btn-1">
-                        Read More
-                      </Link>
-                      <Link to="" className="btn-2">
-                        Contact Us
+                    <Link to="/categories" className="btn-1">
+                        Categories
                       </Link>
                     </div>
                   </div>
@@ -115,11 +109,8 @@ export function Header(){
                       sed do eiusmod tempor incididunt
                     </p>
                     <div className="btn-box">
-                      <Link to="" className="btn-1">
-                        Read More
-                      </Link>
-                      <Link to="" className="btn-2">
-                        Contact Us
+                    <Link to="/categories" className="btn-1">
+                        Categories
                       </Link>
                     </div>
                   </div>
@@ -148,11 +139,8 @@ export function Header(){
                       sed do eiusmod tempor incididunt
                     </p>
                     <div className="btn-box">
-                      <Link to="" className="btn-1">
-                        Read More
-                      </Link>
-                      <Link to="" className="btn-2">
-                        Contact Us
+                    <Link to="/categories" className="btn-1">
+                        Categories
                       </Link>
                     </div>
                   </div>
