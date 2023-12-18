@@ -65,15 +65,18 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userId
     const deleteBook = async (e) => {
       e.preventDefault()
 
-      await bookService.deleteBook(bookId, accessToken);
-      setShowInfo(false)
-      bookService.getAll()
-        .then(result => {
-          setBooks(result)
-        })
-        .catch(err => console.log(err));
-      //navigate(`/categories`)
-      navigate(`/category/${String(book.category).toLowerCase()}`)
+      const deleteConfirmed = window.confirm("Are you sure you want to delete this comment?");
+      if(deleteConfirmed){
+        await bookService.deleteBook(bookId, accessToken);
+        setShowInfo(false)
+        bookService.getAll()
+          .then(result => {
+            setBooks(result)
+          })
+          .catch(err => console.log(err));
+        //navigate(`/categories`)
+        navigate(`/category/${String(book.category).toLowerCase()}`)
+      }
     }
 
 
@@ -82,13 +85,16 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userId
       const commentIdToDelete = e.currentTarget.getAttribute('data-comment-id');
   
       try {
-        setCommentId(commentIdToDelete);
-  
-        // Delete the comment from the server
-        await commentService.deleteComment(commentIdToDelete, accessToken);
-  
-        // Update the UI by removing the deleted comment from the state
-        setCom((prevState) => prevState.filter(comment => comment._id !== commentIdToDelete));
+        const deleteConfirmed = window.confirm("Are you sure you want to delete this comment?");
+        if(deleteConfirmed){
+          setCommentId(commentIdToDelete);
+    
+          // Delete the comment from the server
+          await commentService.deleteComment(commentIdToDelete, accessToken);
+    
+          // Update the UI by removing the deleted comment from the state
+          setCom((prevState) => prevState.filter(comment => comment._id !== commentIdToDelete));
+        }
       } catch (error) {
         console.error("Error deleting comment:", error);
         // Handle error (e.g., show an error message to the user)
