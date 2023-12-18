@@ -190,16 +190,20 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userId
                   }
             </div>
             </div>
+      
           <Modal.Body>
+            <Form.Label><h3>Reviews</h3></Form.Label>
+            {localStorage.getItem("auth") &&
             <Form style={{marginBottom: "15px"}}>
       <Form.Group className="mb-3" controlId="comment">
-        <Form.Label><h3>Reviews</h3></Form.Label>
         <Form.Control type="text" placeholder="Add your comment" name="comment"/>
       </Form.Group>
       <Button variant="primary" type="submit" onClick={comment}>
         Submit
       </Button>
     </Form>
+
+            }
     
     {
 
